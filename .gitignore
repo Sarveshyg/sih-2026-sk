@@ -1,0 +1,28 @@
+# Env and secrets
+.env
+.env.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+*.pyc
+
+# Data - raw NASA downloads (never commit large NASA dumps)
+data/firms/raw/
+data/firms/raw_combined.csv
+data/firms/processed/
+data/geospatial/cache/
+# Keep demo/small data under data/demo if needed — not ignored
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

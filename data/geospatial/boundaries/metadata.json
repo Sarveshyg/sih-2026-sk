@@ -1,0 +1,20 @@
+{
+  "file": "data/geospatial/boundaries/india.geojson",
+  "source": "Natural Earth — Admin 0 Countries (1:50m)",
+  "source_url": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+  "source_website": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/",
+  "license": "Public Domain",
+  "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+  "boundary_level": "country",
+  "country": "India",
+  "iso_a3": "IND",
+  "geometry_type": "MultiPolygon",
+  "polygon_count": 14,
+  "crs": "EPSG:4326",
+  "crs_name": "WGS84",
+  "scale": "1:50m",
+  "acquisition_date": "2026-09-07",
+  "extraction_filter": "ISO_A3 == \"IND\"",
+  "original_properties_preserved": true,
+  "notes": "De facto boundaries per Natural Earth; not survey-grade. For operational use replace with LGD/SOI authoritative boundary."
+}
