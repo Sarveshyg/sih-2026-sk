@@ -1,0 +1,135 @@
+{
+  "radiometric_only_model": {
+    "cv_f1_macro_mean": 0.9256621423326139,
+    "cv_roc_auc_mean": 0.9711798848678779,
+    "test_accuracy": 0.9324960753532182,
+    "test_f1_macro": 0.9168944728801887,
+    "test_roc_auc": 0.9685809404910528,
+    "feature_importance": [
+      {
+        "Feature": "acq_hour",
+        "Importance": 0.678716242313385
+      },
+      {
+        "Feature": "bright_ti5",
+        "Importance": 0.07220403105020523
+      },
+      {
+        "Feature": "track",
+        "Importance": 0.06836115568876266
+      },
+      {
+        "Feature": "temp_diff_ti4_ti5",
+        "Importance": 0.060985442250967026
+      },
+      {
+        "Feature": "bright_ti4",
+        "Importance": 0.039247628301382065
+      },
+      {
+        "Feature": "frp",
+        "Importance": 0.031369470059871674
+      },
+      {
+        "Feature": "scan",
+        "Importance": 0.02803339995443821
+      },
+      {
+        "Feature": "confidence_numeric",
+        "Importance": 0.02108260616660118
+      },
+      {
+        "Feature": "log_frp",
+        "Importance": 0.0
+      },
+      {
+        "Feature": "is_night",
+        "Importance": 0.0
+      }
+    ]
+  },
+  "fused_geospatial_model": {
+    "cv_f1_macro_mean": 0.9980549505139669,
+    "cv_roc_auc_mean": 0.9999885032040263,
+    "test_accuracy": 1.0,
+    "test_f1_macro": 1.0,
+    "test_roc_auc": 1.0,
+    "classification_report": {
+      "Natural / Forest Fire": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 459.0
+      },
+      "Industrial Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 178.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 637.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 637.0
+      }
+    },
+    "feature_importance": [
+      {
+        "Feature": "log_min_industrial_distance",
+        "Importance": 0.4984566867351532
+      },
+      {
+        "Feature": "min_distance_to_industrial_km",
+        "Importance": 0.3709171712398529
+      },
+      {
+        "Feature": "distance_to_flare_km",
+        "Importance": 0.06781108677387238
+      },
+      {
+        "Feature": "distance_to_plant_km",
+        "Importance": 0.010266421362757683
+      },
+      {
+        "Feature": "nearest_flare_level_0.90517171475",
+        "Importance": 0.008535205386579037
+      },
+      {
+        "Feature": "log_distance_to_coal_mine",
+        "Importance": 0.008409730158746243
+      },
+      {
+        "Feature": "distance_to_coal_mine_km",
+        "Importance": 0.008031127043068409
+      },
+      {
+        "Feature": "acq_hour",
+        "Importance": 0.007125787436962128
+      },
+      {
+        "Feature": "log_distance_to_flare",
+        "Importance": 0.00481775077059865
+      },
+      {
+        "Feature": "log_distance_to_plant",
+        "Importance": 0.004018709063529968
+      },
+      {
+        "Feature": "nearest_plant_fuel_fossil gas: unknown",
+        "Importance": 0.0026893713511526585
+      },
+      {
+        "Feature": "temp_diff_ti4_ti5",
+        "Importance": 0.0020665142219513655
+      }
+    ]
+  }
+}
