@@ -1,0 +1,20 @@
+{
+  "firms_input": "C:\\Users\\Sarvesh\\AppData\\Local\\Temp\\tmp241xfvug\\firms.csv",
+  "facilities": "C:\\Users\\Sarvesh\\AppData\\Local\\Temp\\tmp241xfvug\\fac.geojson",
+  "output": "C:\\Users\\Sarvesh\\AppData\\Local\\Temp\\tmp241xfvug\\out.csv",
+  "total_firms": 1,
+  "within_500m": 0,
+  "within_1km": 0,
+  "within_5km": 0,
+  "pct_500m": 0.0,
+  "pct_1km": 0.0,
+  "pct_5km": 0.0,
+  "facility_count_500m_nonzero": 0,
+  "facility_count_1km_nonzero": 0,
+  "facility_count_5km_nonzero": 0,
+  "median_nearest_distance_m": null,
+  "p95_nearest_distance_m": null,
+  "nearest_category_distribution": {},
+  "no_facility_within_5km": 1,
+  "facility_total": 1
+}

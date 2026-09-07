@@ -1,0 +1,63 @@
+{
+  "feature_names": [
+    "latitude",
+    "longitude",
+    "frp",
+    "brightness_temperature",
+    "confidence",
+    "hour_utc",
+    "day_of_week",
+    "month",
+    "detections_24h",
+    "detections_7d",
+    "detections_30d",
+    "persistence",
+    "hotspot_cluster_size",
+    "facility_baseline",
+    "facility_current_activity",
+    "facility_anomaly",
+    "_cluster_size_500",
+    "_distinct_dates",
+    "_span_days",
+    "satellite",
+    "daynight"
+  ],
+  "classes": [
+    "agricultural_fire",
+    "gas_flare",
+    "industrial_fire",
+    "persistent_industrial_thermal_source",
+    "wildfire",
+    "unknown"
+  ],
+  "present_classes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "label_mapping": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5
+  },
+  "inverse_mapping": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5
+  },
+  "params": {
+    "n_estimators": 200,
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "random_state": 42
+  }
+}

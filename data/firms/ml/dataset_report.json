@@ -1,0 +1,132 @@
+{
+  "generated_at": "2026-09-07T12:20:33.865162Z",
+  "input": "data\\firms\\processed\\firms_india.csv",
+  "total_samples": 6523,
+  "class_counts": {
+    "agricultural_fire": 3093,
+    "industrial_fire": 436,
+    "gas_flare": 63,
+    "persistent_industrial_thermal_source": 2795,
+    "unknown": 121,
+    "wildfire": 15
+  },
+  "class_percentages": {
+    "agricultural_fire": 47.42,
+    "industrial_fire": 6.68,
+    "gas_flare": 0.97,
+    "persistent_industrial_thermal_source": 42.85,
+    "unknown": 1.85,
+    "wildfire": 0.23
+  },
+  "total_labeled": 6402,
+  "total_unknown": 121,
+  "unknown_pct": 1.85,
+  "low_confidence_samples": 121,
+  "low_confidence_pct": 1.85,
+  "missing_feature_stats": {
+    "latitude": 0,
+    "longitude": 0,
+    "frp": 0,
+    "brightness_temperature": 0,
+    "confidence": 0,
+    "hour_utc": 0,
+    "day_of_week": 0,
+    "month": 0,
+    "detections_24h": 0,
+    "detections_7d": 0,
+    "detections_30d": 0,
+    "persistence": 0,
+    "hotspot_cluster_size": 0,
+    "facility_baseline": 0,
+    "facility_current_activity": 0,
+    "facility_anomaly": 2128,
+    "_cluster_size_500": 0,
+    "_distinct_dates": 0,
+    "_span_days": 0
+  },
+  "features_used": [
+    "latitude",
+    "longitude",
+    "frp",
+    "brightness_temperature",
+    "confidence",
+    "hour_utc",
+    "day_of_week",
+    "month",
+    "detections_24h",
+    "detections_7d",
+    "detections_30d",
+    "persistence",
+    "hotspot_cluster_size",
+    "facility_baseline",
+    "facility_current_activity",
+    "facility_anomaly",
+    "_cluster_size_500",
+    "_distinct_dates",
+    "_span_days",
+    "satellite",
+    "daynight"
+  ],
+  "features_excluded_due_to_missing": [
+    "landcover_class",
+    "forest_fraction",
+    "nearest_facility_distance_m",
+    "facility_count_500m",
+    "oil_gas_facility_count_1km",
+    "ndvi",
+    "ndbi"
+  ],
+  "label_method": "weak_rule_v1 (multi-signal, no single feature defines label)",
+  "label_rules": {
+    "persistent_industrial_thermal_source": [
+      "detections_7d>=5",
+      "persistence>=0.6",
+      "hotspot_cluster_size>=5",
+      "distinct_dates>=3",
+      "span_days>=5",
+      "frp_moderate",
+      "bt_moderate"
+    ],
+    "industrial_fire": [
+      "frp_high",
+      "bt_high",
+      "detections_24h>=2",
+      "hotspot_cluster_size_3_15",
+      "anomaly_high",
+      "persistence_mid"
+    ],
+    "gas_flare": [
+      "persistence_very_high",
+      "detections_30d>=10",
+      "hotspot_small",
+      "distinct_dates>=5",
+      "span_days>=10",
+      "frp_moderate",
+      "bt_moderate"
+    ],
+    "wildfire": [
+      "hotspot_large",
+      "frp_high",
+      "bt_high",
+      "persistence_mid_low",
+      "distinct_dates_short",
+      "burst_ratio"
+    ],
+    "agricultural_fire": [
+      "persistence_low",
+      "span_short",
+      "distinct_dates_short",
+      "detections_7d_low",
+      "frp_low_moderate",
+      "hotspot_small",
+      "bt_moderate"
+    ]
+  },
+  "leakage_note": "Weak labels use persistence/detections/hotspot; training features include same temporal features => weak-supervision baseline, not independent evaluation. See leakage_report.",
+  "temporal_leakage_safe": true,
+  "spatial_clusters_500m": 1870,
+  "output_files": {
+    "training_dataset": "data\\firms\\ml\\training_dataset.csv",
+    "labels": "data\\firms\\ml\\labels.csv"
+  }
+}

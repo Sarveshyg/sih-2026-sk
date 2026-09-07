@@ -1,0 +1,32 @@
+{
+  "input_rows": 12318,
+  "valid_rows": 12318,
+  "invalid_rows": 0,
+  "duplicates_removed": 0,
+  "missing_frp": 0,
+  "missing_confidence": 0,
+  "missing_brightness_temperature": 0,
+  "unique_satellites": [
+    "N20",
+    "N21",
+    "VIIRS"
+  ],
+  "satellite_counts": {
+    "N20": 4277,
+    "N21": 4010,
+    "VIIRS": 4031
+  },
+  "date_range": [
+    "2026-08-01T06:57:00Z",
+    "2026-08-30T21:59:00Z"
+  ],
+  "latitude_range": [
+    6.07259,
+    35.99315
+  ],
+  "longitude_range": [
+    68.00181,
+    97.98763
+  ],
+  "invalid_reasons": {}
+}

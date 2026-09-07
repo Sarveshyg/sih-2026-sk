@@ -1,0 +1,1855 @@
+{
+  "generated_at": "2026-09-07T10:29:53.301464Z",
+  "dataset": {
+    "path": "data\\firms\\processed\\firms_india.csv",
+    "boundary": "data\\geospatial\\boundaries\\india.geojson",
+    "total_records": 6523,
+    "unique_ids": 6523,
+    "duplicate_ids": 0,
+    "missing_values": {
+      "id": 0,
+      "latitude": 0,
+      "longitude": 0,
+      "frp": 0,
+      "brightness_temperature": 0,
+      "confidence": 0,
+      "timestamp": 0,
+      "satellite": 0
+    },
+    "invalid_coordinates": {
+      "invalid_lat": 0,
+      "invalid_lon": 0
+    },
+    "timestamp_range": [
+      "2026-08-01T06:57:00Z",
+      "2026-08-30T21:21:00Z"
+    ],
+    "unique_acquisition_dates": 30,
+    "unique_satellites": [
+      "N20",
+      "N21",
+      "VIIRS"
+    ],
+    "columns": [
+      "id",
+      "latitude",
+      "longitude",
+      "frp",
+      "brightness_temperature",
+      "confidence",
+      "timestamp",
+      "satellite"
+    ],
+    "numeric_summary": {
+      "frp": {
+        "min": 0.15,
+        "max": 239.09,
+        "mean": 3.3148367315652307,
+        "median": 2.15,
+        "std": 5.331217165380374,
+        "p5": 0.62,
+        "p25": 1.27,
+        "p75": 3.88,
+        "p95": 9.02,
+        "p99": 17.258999999999986
+      },
+      "brightness_temperature": {
+        "min": 207.93,
+        "max": 367.0,
+        "mean": 318.0830676069293,
+        "median": 311.22,
+        "std": 16.065981374185263,
+        "p5": 298.67,
+        "p25": 304.815,
+        "p75": 333.615,
+        "p95": 343.428,
+        "p99": 353.25039999999996
+      },
+      "confidence": {
+        "min": 30.0,
+        "max": 90.0,
+        "mean": 59.24114671163575,
+        "median": 60.0,
+        "std": 5.520218423366405,
+        "p5": 60.0,
+        "p25": 60.0,
+        "p75": 60.0,
+        "p95": 60.0,
+        "p99": 60.0
+      }
+    },
+    "inside_boundary_verified": {
+      "inside": 6523,
+      "outside": 0,
+      "all_inside": true,
+      "crs": "EPSG:4326",
+      "geometry_type": "MultiPolygon"
+    }
+  },
+  "temporal": {
+    "detections_per_day": {
+      "2026-08-01": 260,
+      "2026-08-02": 310,
+      "2026-08-03": 41,
+      "2026-08-04": 39,
+      "2026-08-05": 165,
+      "2026-08-06": 65,
+      "2026-08-07": 87,
+      "2026-08-08": 245,
+      "2026-08-09": 493,
+      "2026-08-10": 377,
+      "2026-08-11": 327,
+      "2026-08-12": 171,
+      "2026-08-13": 94,
+      "2026-08-14": 136,
+      "2026-08-15": 164,
+      "2026-08-16": 214,
+      "2026-08-17": 64,
+      "2026-08-18": 245,
+      "2026-08-19": 362,
+      "2026-08-20": 446,
+      "2026-08-21": 381,
+      "2026-08-22": 342,
+      "2026-08-23": 252,
+      "2026-08-24": 117,
+      "2026-08-25": 140,
+      "2026-08-26": 219,
+      "2026-08-27": 185,
+      "2026-08-28": 222,
+      "2026-08-29": 198,
+      "2026-08-30": 162
+    },
+    "detections_by_hour": {
+      "20": 2535,
+      "19": 1348,
+      "8": 1289,
+      "7": 872,
+      "21": 369,
+      "6": 46,
+      "18": 33,
+      "9": 30,
+      "5": 1
+    },
+    "daynight_approx": {
+      "N": 4253,
+      "D": 2270
+    },
+    "detections_by_satellite": {
+      "N20": 2294,
+      "VIIRS": 2117,
+      "N21": 2112
+    },
+    "detections_per_month": {
+      "2026-08": 6523
+    },
+    "daily_frp_stats": {
+      "2026-08-01": {
+        "count": 260.0,
+        "mean": 2.62,
+        "median": 1.65,
+        "max": 22.26,
+        "min": 0.25,
+        "std": 2.82
+      },
+      "2026-08-02": {
+        "count": 310.0,
+        "mean": 2.95,
+        "median": 1.9,
+        "max": 23.16,
+        "min": 0.33,
+        "std": 2.93
+      },
+      "2026-08-03": {
+        "count": 41.0,
+        "mean": 3.05,
+        "median": 2.51,
+        "max": 9.17,
+        "min": 0.36,
+        "std": 2.35
+      },
+      "2026-08-04": {
+        "count": 39.0,
+        "mean": 2.88,
+        "median": 1.78,
+        "max": 16.78,
+        "min": 0.46,
+        "std": 3.08
+      },
+      "2026-08-05": {
+        "count": 165.0,
+        "mean": 3.79,
+        "median": 2.58,
+        "max": 52.66,
+        "min": 0.42,
+        "std": 5.13
+      },
+      "2026-08-06": {
+        "count": 65.0,
+        "mean": 2.65,
+        "median": 2.28,
+        "max": 6.92,
+        "min": 0.35,
+        "std": 1.42
+      },
+      "2026-08-07": {
+        "count": 87.0,
+        "mean": 2.7,
+        "median": 2.4,
+        "max": 7.99,
+        "min": 0.53,
+        "std": 1.45
+      },
+      "2026-08-08": {
+        "count": 245.0,
+        "mean": 1.93,
+        "median": 1.57,
+        "max": 10.98,
+        "min": 0.29,
+        "std": 1.36
+      },
+      "2026-08-09": {
+        "count": 493.0,
+        "mean": 3.06,
+        "median": 2.25,
+        "max": 27.03,
+        "min": 0.35,
+        "std": 3.09
+      },
+      "2026-08-10": {
+        "count": 377.0,
+        "mean": 4.2,
+        "median": 3.11,
+        "max": 27.78,
+        "min": 0.26,
+        "std": 3.8
+      },
+      "2026-08-11": {
+        "count": 327.0,
+        "mean": 3.44,
+        "median": 2.48,
+        "max": 36.14,
+        "min": 0.4,
+        "std": 3.32
+      },
+      "2026-08-12": {
+        "count": 171.0,
+        "mean": 3.74,
+        "median": 2.05,
+        "max": 48.72,
+        "min": 0.42,
+        "std": 5.89
+      },
+      "2026-08-13": {
+        "count": 94.0,
+        "mean": 3.37,
+        "median": 2.91,
+        "max": 12.87,
+        "min": 0.25,
+        "std": 2.69
+      },
+      "2026-08-14": {
+        "count": 136.0,
+        "mean": 3.27,
+        "median": 2.86,
+        "max": 14.1,
+        "min": 0.46,
+        "std": 2.51
+      },
+      "2026-08-15": {
+        "count": 164.0,
+        "mean": 2.49,
+        "median": 1.54,
+        "max": 23.76,
+        "min": 0.29,
+        "std": 2.85
+      },
+      "2026-08-16": {
+        "count": 214.0,
+        "mean": 2.77,
+        "median": 1.72,
+        "max": 25.54,
+        "min": 0.22,
+        "std": 3.29
+      },
+      "2026-08-17": {
+        "count": 64.0,
+        "mean": 3.22,
+        "median": 2.29,
+        "max": 9.93,
+        "min": 0.57,
+        "std": 2.46
+      },
+      "2026-08-18": {
+        "count": 245.0,
+        "mean": 4.81,
+        "median": 3.69,
+        "max": 46.2,
+        "min": 0.33,
+        "std": 4.8
+      },
+      "2026-08-19": {
+        "count": 362.0,
+        "mean": 4.1,
+        "median": 2.43,
+        "max": 239.09,
+        "min": 0.2,
+        "std": 12.84
+      },
+      "2026-08-20": {
+        "count": 446.0,
+        "mean": 2.53,
+        "median": 1.8,
+        "max": 17.21,
+        "min": 0.22,
+        "std": 2.38
+      },
+      "2026-08-21": {
+        "count": 381.0,
+        "mean": 4.55,
+        "median": 2.45,
+        "max": 135.46,
+        "min": 0.25,
+        "std": 11.35
+      },
+      "2026-08-22": {
+        "count": 342.0,
+        "mean": 2.91,
+        "median": 1.52,
+        "max": 52.02,
+        "min": 0.15,
+        "std": 5.29
+      },
+      "2026-08-23": {
+        "count": 252.0,
+        "mean": 2.98,
+        "median": 1.98,
+        "max": 19.65,
+        "min": 0.28,
+        "std": 2.69
+      },
+      "2026-08-24": {
+        "count": 117.0,
+        "mean": 2.61,
+        "median": 2.0,
+        "max": 20.93,
+        "min": 0.46,
+        "std": 2.38
+      },
+      "2026-08-25": {
+        "count": 140.0,
+        "mean": 2.14,
+        "median": 1.92,
+        "max": 9.7,
+        "min": 0.38,
+        "std": 1.45
+      },
+      "2026-08-26": {
+        "count": 219.0,
+        "mean": 3.06,
+        "median": 2.11,
+        "max": 24.35,
+        "min": 0.19,
+        "std": 2.92
+      },
+      "2026-08-27": {
+        "count": 185.0,
+        "mean": 4.04,
+        "median": 2.27,
+        "max": 28.69,
+        "min": 0.22,
+        "std": 4.5
+      },
+      "2026-08-28": {
+        "count": 222.0,
+        "mean": 4.31,
+        "median": 3.18,
+        "max": 54.45,
+        "min": 0.23,
+        "std": 5.06
+      },
+      "2026-08-29": {
+        "count": 198.0,
+        "mean": 3.24,
+        "median": 2.71,
+        "max": 12.19,
+        "min": 0.23,
+        "std": 2.39
+      },
+      "2026-08-30": {
+        "count": 162.0,
+        "mean": 3.51,
+        "median": 2.05,
+        "max": 61.33,
+        "min": 0.27,
+        "std": 5.59
+      }
+    },
+    "high_activity_days": {
+      "2026-08-09": 493
+    },
+    "mean_per_day": 217.43333333333334,
+    "std_per_day": 120.18912778110011
+  },
+  "thermal": {
+    "frp": {
+      "min": 0.15,
+      "max": 239.09,
+      "mean": 3.3148367315652307,
+      "median": 2.15,
+      "std": 5.331217165380374,
+      "p5": 0.62,
+      "p25": 1.27,
+      "p75": 3.88,
+      "p95": 9.02,
+      "p99": 17.258999999999986
+    },
+    "brightness_temperature": {
+      "min": 207.93,
+      "max": 367.0,
+      "mean": 318.0830676069293,
+      "median": 311.22,
+      "std": 16.065981374185263,
+      "p5": 298.67,
+      "p25": 304.815,
+      "p75": 333.615,
+      "p95": 343.428,
+      "p99": 353.25039999999996
+    },
+    "confidence": {
+      "min": 30.0,
+      "max": 90.0,
+      "mean": 59.24114671163575,
+      "median": 60.0,
+      "std": 5.520218423366405,
+      "p5": 60.0,
+      "p25": 60.0,
+      "p75": 60.0,
+      "p95": 60.0,
+      "p99": 60.0
+    },
+    "top50_frp": [
+      {
+        "id": "FIRMS_5C825D49",
+        "latitude": 8.74034,
+        "longitude": 77.6055,
+        "frp": 239.09,
+        "brightness_temperature": 340.56,
+        "confidence": 60.0,
+        "timestamp": "2026-08-19T08:52:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_6BE3351B",
+        "latitude": 15.77281,
+        "longitude": 73.70358,
+        "frp": 135.46,
+        "brightness_temperature": 337.78,
+        "confidence": 30.0,
+        "timestamp": "2026-08-21T08:16:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_1086812B",
+        "latitude": 15.76875,
+        "longitude": 73.70028,
+        "frp": 115.94,
+        "brightness_temperature": 253.68,
+        "confidence": 30.0,
+        "timestamp": "2026-08-21T08:16:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_54732FB9",
+        "latitude": 15.76939,
+        "longitude": 73.70415,
+        "frp": 115.94,
+        "brightness_temperature": 207.93,
+        "confidence": 30.0,
+        "timestamp": "2026-08-21T08:16:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_01ACBF5E",
+        "latitude": 11.80984,
+        "longitude": 77.21425,
+        "frp": 61.33,
+        "brightness_temperature": 335.6,
+        "confidence": 60.0,
+        "timestamp": "2026-08-30T08:28:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_4E1DD373",
+        "latitude": 9.55345,
+        "longitude": 78.51564,
+        "frp": 54.45,
+        "brightness_temperature": 341.09,
+        "confidence": 60.0,
+        "timestamp": "2026-08-28T08:28:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_6C63A045",
+        "latitude": 10.34656,
+        "longitude": 77.54609,
+        "frp": 52.66,
+        "brightness_temperature": 348.92,
+        "confidence": 60.0,
+        "timestamp": "2026-08-05T08:13:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_BC2ADFF1",
+        "latitude": 29.46,
+        "longitude": 76.86426,
+        "frp": 52.02,
+        "brightness_temperature": 367.0,
+        "confidence": 90.0,
+        "timestamp": "2026-08-22T07:05:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_29303E0D",
+        "latitude": 11.71186,
+        "longitude": 79.12611,
+        "frp": 49.23,
+        "brightness_temperature": 335.37,
+        "confidence": 30.0,
+        "timestamp": "2026-08-21T07:56:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_B00DEED0",
+        "latitude": 8.58918,
+        "longitude": 77.91875,
+        "frp": 48.72,
+        "brightness_temperature": 343.59,
+        "confidence": 60.0,
+        "timestamp": "2026-08-12T08:28:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_5267E11A",
+        "latitude": 11.69771,
+        "longitude": 78.67934,
+        "frp": 46.2,
+        "brightness_temperature": 330.63,
+        "confidence": 60.0,
+        "timestamp": "2026-08-18T08:16:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_D06ACEA8",
+        "latitude": 29.45838,
+        "longitude": 76.86343,
+        "frp": 44.95,
+        "brightness_temperature": 367.0,
+        "confidence": 90.0,
+        "timestamp": "2026-08-22T07:05:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_B2307358",
+        "latitude": 18.08593,
+        "longitude": 81.23905,
+        "frp": 39.17,
+        "brightness_temperature": 356.33,
+        "confidence": 30.0,
+        "timestamp": "2026-08-12T07:46:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_07A4DD31",
+        "latitude": 18.08656,
+        "longitude": 81.24291,
+        "frp": 39.17,
+        "brightness_temperature": 335.15,
+        "confidence": 60.0,
+        "timestamp": "2026-08-12T07:46:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_69BBA831",
+        "latitude": 15.63307,
+        "longitude": 79.89992,
+        "frp": 36.14,
+        "brightness_temperature": 348.35,
+        "confidence": 60.0,
+        "timestamp": "2026-08-11T08:05:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_E686697F",
+        "latitude": 11.71099,
+        "longitude": 79.12828,
+        "frp": 30.85,
+        "brightness_temperature": 348.21,
+        "confidence": 60.0,
+        "timestamp": "2026-08-21T08:16:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_DB30A76D",
+        "latitude": 29.45864,
+        "longitude": 76.85911,
+        "frp": 30.37,
+        "brightness_temperature": 330.26,
+        "confidence": 60.0,
+        "timestamp": "2026-08-22T07:05:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_5B8A41C7",
+        "latitude": 29.45857,
+        "longitude": 76.8695,
+        "frp": 29.94,
+        "brightness_temperature": 339.11,
+        "confidence": 60.0,
+        "timestamp": "2026-08-22T08:01:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_229C3085",
+        "latitude": 29.46125,
+        "longitude": 76.86491,
+        "frp": 29.94,
+        "brightness_temperature": 337.25,
+        "confidence": 60.0,
+        "timestamp": "2026-08-22T08:01:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_4C6CD221",
+        "latitude": 29.91005,
+        "longitude": 74.94773,
+        "frp": 28.69,
+        "brightness_temperature": 319.45,
+        "confidence": 60.0,
+        "timestamp": "2026-08-27T21:55:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_BF7FC740",
+        "latitude": 9.67706,
+        "longitude": 77.40768,
+        "frp": 27.78,
+        "brightness_temperature": 353.93,
+        "confidence": 60.0,
+        "timestamp": "2026-08-10T08:01:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_055C44D2",
+        "latitude": 8.73967,
+        "longitude": 77.60538,
+        "frp": 27.52,
+        "brightness_temperature": 317.62,
+        "confidence": 60.0,
+        "timestamp": "2026-08-19T20:32:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_B7385B79",
+        "latitude": 8.74035,
+        "longitude": 77.6012,
+        "frp": 27.52,
+        "brightness_temperature": 344.45,
+        "confidence": 60.0,
+        "timestamp": "2026-08-19T20:32:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_455857ED",
+        "latitude": 11.66286,
+        "longitude": 78.62783,
+        "frp": 27.03,
+        "brightness_temperature": 332.08,
+        "confidence": 60.0,
+        "timestamp": "2026-08-09T07:46:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_C4655589",
+        "latitude": 15.66939,
+        "longitude": 80.24091,
+        "frp": 26.37,
+        "brightness_temperature": 340.92,
+        "confidence": 60.0,
+        "timestamp": "2026-08-10T08:03:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_688A4797",
+        "latitude": 11.66187,
+        "longitude": 78.67394,
+        "frp": 25.85,
+        "brightness_temperature": 353.32,
+        "confidence": 60.0,
+        "timestamp": "2026-08-18T08:52:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_7A2183DA",
+        "latitude": 11.66242,
+        "longitude": 78.67835,
+        "frp": 25.85,
+        "brightness_temperature": 367.0,
+        "confidence": 90.0,
+        "timestamp": "2026-08-18T08:52:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_F6480CB7",
+        "latitude": 11.66789,
+        "longitude": 78.67705,
+        "frp": 25.85,
+        "brightness_temperature": 356.8,
+        "confidence": 30.0,
+        "timestamp": "2026-08-18T08:52:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_CBF943D9",
+        "latitude": 11.82039,
+        "longitude": 78.73884,
+        "frp": 25.54,
+        "brightness_temperature": 367.0,
+        "confidence": 90.0,
+        "timestamp": "2026-08-16T08:54:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_9AFA3046",
+        "latitude": 29.45792,
+        "longitude": 76.86768,
+        "frp": 24.83,
+        "brightness_temperature": 352.46,
+        "confidence": 60.0,
+        "timestamp": "2026-08-22T08:45:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_55B2A338",
+        "latitude": 29.45823,
+        "longitude": 76.87273,
+        "frp": 24.83,
+        "brightness_temperature": 350.27,
+        "confidence": 60.0,
+        "timestamp": "2026-08-22T08:45:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_3DC58230",
+        "latitude": 14.30297,
+        "longitude": 77.43273,
+        "frp": 24.5,
+        "brightness_temperature": 356.07,
+        "confidence": 30.0,
+        "timestamp": "2026-08-10T08:22:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_C47BCB86",
+        "latitude": 14.60742,
+        "longitude": 79.66074,
+        "frp": 24.47,
+        "brightness_temperature": 347.79,
+        "confidence": 60.0,
+        "timestamp": "2026-08-21T07:58:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_D2915847",
+        "latitude": 12.13064,
+        "longitude": 79.65323,
+        "frp": 24.35,
+        "brightness_temperature": 333.44,
+        "confidence": 30.0,
+        "timestamp": "2026-08-26T08:01:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_6B9B0798",
+        "latitude": 9.67609,
+        "longitude": 77.4088,
+        "frp": 23.88,
+        "brightness_temperature": 347.17,
+        "confidence": 60.0,
+        "timestamp": "2026-08-10T08:20:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_2427186E",
+        "latitude": 28.161,
+        "longitude": 95.59473,
+        "frp": 23.76,
+        "brightness_temperature": 347.52,
+        "confidence": 60.0,
+        "timestamp": "2026-08-15T07:35:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_675D28A0",
+        "latitude": 21.74854,
+        "longitude": 83.84187,
+        "frp": 23.16,
+        "brightness_temperature": 356.0,
+        "confidence": 30.0,
+        "timestamp": "2026-08-02T08:20:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_B3901A87",
+        "latitude": 13.50082,
+        "longitude": 79.60096,
+        "frp": 22.49,
+        "brightness_temperature": 339.29,
+        "confidence": 60.0,
+        "timestamp": "2026-08-10T07:26:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_28C38C40",
+        "latitude": 8.82639,
+        "longitude": 78.08728,
+        "frp": 22.26,
+        "brightness_temperature": 349.32,
+        "confidence": 60.0,
+        "timestamp": "2026-08-01T20:06:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_ECD47590",
+        "latitude": 10.4347,
+        "longitude": 77.16103,
+        "frp": 21.89,
+        "brightness_temperature": 347.16,
+        "confidence": 60.0,
+        "timestamp": "2026-08-16T08:07:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_636929CB",
+        "latitude": 9.71022,
+        "longitude": 77.59872,
+        "frp": 21.87,
+        "brightness_temperature": 311.92,
+        "confidence": 60.0,
+        "timestamp": "2026-08-09T20:19:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_A8BB5E63",
+        "latitude": 9.7135,
+        "longitude": 77.59925,
+        "frp": 21.87,
+        "brightness_temperature": 346.16,
+        "confidence": 60.0,
+        "timestamp": "2026-08-09T20:19:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_726A3D34",
+        "latitude": 25.94312,
+        "longitude": 72.19508,
+        "frp": 21.83,
+        "brightness_temperature": 367.0,
+        "confidence": 90.0,
+        "timestamp": "2026-08-28T09:09:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_AC31C21E",
+        "latitude": 25.94344,
+        "longitude": 72.1987,
+        "frp": 21.83,
+        "brightness_temperature": 330.75,
+        "confidence": 60.0,
+        "timestamp": "2026-08-28T09:09:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_CFD974D4",
+        "latitude": 9.38962,
+        "longitude": 78.88501,
+        "frp": 21.77,
+        "brightness_temperature": 347.44,
+        "confidence": 60.0,
+        "timestamp": "2026-08-26T08:22:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_99B4B902",
+        "latitude": 15.089,
+        "longitude": 79.77787,
+        "frp": 21.57,
+        "brightness_temperature": 336.56,
+        "confidence": 60.0,
+        "timestamp": "2026-08-28T07:46:00Z",
+        "satellite": "N20"
+      },
+      {
+        "id": "FIRMS_14C87201",
+        "latitude": 8.74296,
+        "longitude": 77.59831,
+        "frp": 21.46,
+        "brightness_temperature": 367.0,
+        "confidence": 90.0,
+        "timestamp": "2026-08-19T21:08:00Z",
+        "satellite": "VIIRS"
+      },
+      {
+        "id": "FIRMS_09277077",
+        "latitude": 31.99993,
+        "longitude": 78.53543,
+        "frp": 20.93,
+        "brightness_temperature": 342.79,
+        "confidence": 60.0,
+        "timestamp": "2026-08-24T08:09:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_EB9BD339",
+        "latitude": 21.74668,
+        "longitude": 83.84146,
+        "frp": 20.84,
+        "brightness_temperature": 355.66,
+        "confidence": 30.0,
+        "timestamp": "2026-08-02T08:20:00Z",
+        "satellite": "N21"
+      },
+      {
+        "id": "FIRMS_4B9E95D9",
+        "latitude": 14.60819,
+        "longitude": 79.65999,
+        "frp": 20.66,
+        "brightness_temperature": 344.84,
+        "confidence": 30.0,
+        "timestamp": "2026-08-21T07:58:00Z",
+        "satellite": "VIIRS"
+      }
+    ]
+  },
+  "spatial": {
+    "extent": {
+      "lat_min": 8.30407,
+      "lat_max": 34.47789,
+      "lon_min": 68.56316,
+      "lon_max": 96.95645,
+      "center_lat": 18.934997531810517,
+      "center_lon": 81.3260476099954
+    },
+    "grid_0_5deg_top20": [
+      {
+        "grid_lat": 23.5,
+        "grid_lon": 86.0,
+        "count": 877
+      },
+      {
+        "grid_lat": 15.0,
+        "grid_lon": 76.5,
+        "count": 355
+      },
+      {
+        "grid_lat": 23.5,
+        "grid_lon": 87.0,
+        "count": 228
+      },
+      {
+        "grid_lat": 22.0,
+        "grid_lon": 87.0,
+        "count": 225
+      },
+      {
+        "grid_lat": 20.5,
+        "grid_lon": 85.0,
+        "count": 215
+      },
+      {
+        "grid_lat": 8.5,
+        "grid_lon": 77.5,
+        "count": 166
+      },
+      {
+        "grid_lat": 23.5,
+        "grid_lon": 85.0,
+        "count": 141
+      },
+      {
+        "grid_lat": 22.5,
+        "grid_lon": 86.0,
+        "count": 122
+      },
+      {
+        "grid_lat": 23.5,
+        "grid_lon": 85.5,
+        "count": 116
+      },
+      {
+        "grid_lat": 9.0,
+        "grid_lon": 77.5,
+        "count": 110
+      },
+      {
+        "grid_lat": 9.5,
+        "grid_lon": 77.5,
+        "count": 103
+      },
+      {
+        "grid_lat": 21.5,
+        "grid_lon": 83.5,
+        "count": 95
+      },
+      {
+        "grid_lat": 9.5,
+        "grid_lon": 78.0,
+        "count": 94
+      },
+      {
+        "grid_lat": 20.5,
+        "grid_lon": 86.0,
+        "count": 80
+      },
+      {
+        "grid_lat": 27.0,
+        "grid_lon": 95.0,
+        "count": 79
+      },
+      {
+        "grid_lat": 14.0,
+        "grid_lon": 77.0,
+        "count": 78
+      },
+      {
+        "grid_lat": 15.0,
+        "grid_lon": 76.0,
+        "count": 76
+      },
+      {
+        "grid_lat": 29.0,
+        "grid_lon": 76.5,
+        "count": 76
+      },
+      {
+        "grid_lat": 9.0,
+        "grid_lon": 78.5,
+        "count": 72
+      },
+      {
+        "grid_lat": 10.0,
+        "grid_lon": 77.0,
+        "count": 70
+      }
+    ],
+    "hotspot_clusters": {
+      "method": "Union-Find haversine eps=1000m (grid-hashed)",
+      "n_clusters": 373,
+      "noise_points": 1620,
+      "total_spatial_groups": 1711,
+      "cluster_size_distribution": {
+        "3": 114,
+        "4": 61,
+        "5": 34,
+        "6": 17,
+        "7": 14,
+        "8": 14,
+        "9": 8,
+        "10": 11,
+        "11": 6,
+        "12": 6,
+        "13": 8,
+        "14": 3,
+        "15": 4,
+        "16": 1,
+        "17": 8,
+        "18": 4,
+        "19": 3,
+        "20": 5,
+        "21": 6,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 3,
+        "27": 2,
+        "28": 1,
+        "29": 1,
+        "30": 2,
+        "31": 1,
+        "32": 2,
+        "37": 1,
+        "38": 1,
+        "39": 3,
+        "40": 3,
+        "41": 1,
+        "42": 1,
+        "43": 1,
+        "45": 2,
+        "46": 1,
+        "50": 1,
+        "58": 1,
+        "60": 1,
+        "64": 1,
+        "67": 1,
+        "69": 1,
+        "74": 1,
+        "76": 1,
+        "80": 1,
+        "89": 1,
+        "107": 2,
+        "117": 1,
+        "121": 1,
+        "146": 1,
+        "224": 1,
+        "309": 1
+      },
+      "largest_clusters": [
+        {
+          "cluster_id": 335,
+          "size": 309,
+          "centroid_lat": 15.17808491909385,
+          "centroid_lon": 76.66655307443365,
+          "frp_mean": 2.0559223300970872,
+          "frp_max": 8.73,
+          "date_span_days": 29,
+          "satellites": {
+            "N20": 89,
+            "N21": 120,
+            "VIIRS": 100
+          }
+        },
+        {
+          "cluster_id": 53,
+          "size": 224,
+          "centroid_lat": 23.765239508928573,
+          "centroid_lon": 86.40012102678573,
+          "frp_mean": 2.3582589285714284,
+          "frp_max": 9.11,
+          "date_span_days": 29,
+          "satellites": {
+            "N20": 94,
+            "N21": 67,
+            "VIIRS": 63
+          }
+        },
+        {
+          "cluster_id": 40,
+          "size": 146,
+          "centroid_lat": 23.680832671232878,
+          "centroid_lon": 86.39610527397261,
+          "frp_mean": 2.5143835616438355,
+          "frp_max": 13.01,
+          "date_span_days": 23,
+          "satellites": {
+            "N20": 54,
+            "N21": 39,
+            "VIIRS": 53
+          }
+        },
+        {
+          "cluster_id": 202,
+          "size": 121,
+          "centroid_lat": 23.724170247933884,
+          "centroid_lon": 86.4410152892562,
+          "frp_mean": 2.5138016528925626,
+          "frp_max": 8.89,
+          "date_span_days": 23,
+          "satellites": {
+            "N20": 38,
+            "N21": 34,
+            "VIIRS": 49
+          }
+        },
+        {
+          "cluster_id": 501,
+          "size": 117,
+          "centroid_lat": 23.682350683760678,
+          "centroid_lon": 86.08762829059827,
+          "frp_mean": 2.4095726495726493,
+          "frp_max": 9.38,
+          "date_span_days": 22,
+          "satellites": {
+            "N20": 38,
+            "N21": 41,
+            "VIIRS": 38
+          }
+        },
+        {
+          "cluster_id": 193,
+          "size": 107,
+          "centroid_lat": 23.691870841121496,
+          "centroid_lon": 87.1120289719626,
+          "frp_mean": 1.9755140186915887,
+          "frp_max": 8.44,
+          "date_span_days": 28,
+          "satellites": {
+            "N20": 38,
+            "N21": 33,
+            "VIIRS": 36
+          }
+        },
+        {
+          "cluster_id": 411,
+          "size": 107,
+          "centroid_lat": 20.967230841121495,
+          "centroid_lon": 85.17514018691587,
+          "frp_mean": 2.738878504672898,
+          "frp_max": 9.71,
+          "date_span_days": 26,
+          "satellites": {
+            "N20": 28,
+            "N21": 35,
+            "VIIRS": 44
+          }
+        },
+        {
+          "cluster_id": 33,
+          "size": 89,
+          "centroid_lat": 22.37768808988764,
+          "centroid_lon": 87.27926460674158,
+          "frp_mean": 3.264831460674157,
+          "frp_max": 10.47,
+          "date_span_days": 29,
+          "satellites": {
+            "N20": 27,
+            "N21": 34,
+            "VIIRS": 28
+          }
+        },
+        {
+          "cluster_id": 19,
+          "size": 80,
+          "centroid_lat": 21.74950575,
+          "centroid_lon": 83.84354225,
+          "frp_mean": 5.668625,
+          "frp_max": 23.16,
+          "date_span_days": 28,
+          "satellites": {
+            "N20": 29,
+            "N21": 20,
+            "VIIRS": 31
+          }
+        },
+        {
+          "cluster_id": 27,
+          "size": 76,
+          "centroid_lat": 22.791127499999998,
+          "centroid_lon": 86.20301671052633,
+          "frp_mean": 2.4147368421052637,
+          "frp_max": 8.88,
+          "date_span_days": 27,
+          "satellites": {
+            "N20": 25,
+            "N21": 25,
+            "VIIRS": 26
+          }
+        }
+      ],
+      "eps_m": 1000
+    }
+  },
+  "persistence": {
+    "method": "Union-Find haversine eps=500m (unique spatial locations)",
+    "n_unique_spatial_clusters": 1870,
+    "cluster_size_distribution": {
+      "1": 1194,
+      "2": 286,
+      "3": 118,
+      "4": 62,
+      "5": 30,
+      "6": 23,
+      "7": 20,
+      "8": 14,
+      "9": 11,
+      "10": 11,
+      "11": 10,
+      "12": 4,
+      "13": 8,
+      "14": 3,
+      "15": 4,
+      "16": 2,
+      "17": 9,
+      "18": 2,
+      "19": 3,
+      "20": 6,
+      "21": 4,
+      "22": 1,
+      "24": 1,
+      "25": 3,
+      "26": 2,
+      "27": 1,
+      "28": 1,
+      "29": 1,
+      "30": 2,
+      "31": 1,
+      "32": 1,
+      "35": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 3,
+      "41": 1,
+      "42": 1,
+      "43": 1,
+      "45": 3,
+      "46": 1,
+      "49": 1,
+      "50": 2,
+      "52": 1,
+      "56": 1,
+      "58": 1,
+      "60": 1,
+      "64": 1,
+      "67": 1,
+      "72": 1,
+      "76": 1,
+      "80": 1,
+      "89": 1,
+      "102": 1,
+      "105": 1,
+      "144": 1,
+      "156": 1,
+      "274": 1
+    },
+    "isolated_detections": 1194,
+    "repeated_detections": 676,
+    "multi_day_locations": 336,
+    "multi_week_locations": 249,
+    "high_persistence_locations": 252,
+    "largest_persist_clusters": [
+      {
+        "cluster_id": 336,
+        "size": 274,
+        "distinct_dates": 21,
+        "span_days": 28,
+        "centroid_lat": 15.178384525547447,
+        "centroid_lon": 76.66469510948905,
+        "satellites": {
+          "N20": 80,
+          "N21": 108,
+          "VIIRS": 86
+        },
+        "frp_max": 8.73,
+        "frp_mean": 2.087773722627737
+      },
+      {
+        "cluster_id": 205,
+        "size": 156,
+        "distinct_dates": 16,
+        "span_days": 28,
+        "centroid_lat": 23.762409807692308,
+        "centroid_lon": 86.40199038461539,
+        "satellites": {
+          "N20": 71,
+          "N21": 45,
+          "VIIRS": 40
+        },
+        "frp_max": 9.11,
+        "frp_mean": 2.3568589743589747
+      },
+      {
+        "cluster_id": 40,
+        "size": 144,
+        "distinct_dates": 13,
+        "span_days": 22,
+        "centroid_lat": 23.680677777777777,
+        "centroid_lon": 86.39600486111111,
+        "satellites": {
+          "N20": 52,
+          "N21": 39,
+          "VIIRS": 53
+        },
+        "frp_max": 13.01,
+        "frp_mean": 2.5266666666666664
+      },
+      {
+        "cluster_id": 411,
+        "size": 105,
+        "distinct_dates": 9,
+        "span_days": 25,
+        "centroid_lat": 20.96720076190476,
+        "centroid_lon": 85.17554400000002,
+        "satellites": {
+          "N20": 28,
+          "N21": 34,
+          "VIIRS": 43
+        },
+        "frp_max": 9.71,
+        "frp_mean": 2.7604761904761905
+      },
+      {
+        "cluster_id": 196,
+        "size": 102,
+        "distinct_dates": 16,
+        "span_days": 27,
+        "centroid_lat": 23.69230029411765,
+        "centroid_lon": 87.11119647058823,
+        "satellites": {
+          "N20": 34,
+          "N21": 32,
+          "VIIRS": 36
+        },
+        "frp_max": 8.44,
+        "frp_mean": 1.9813725490196081
+      },
+      {
+        "cluster_id": 33,
+        "size": 89,
+        "distinct_dates": 17,
+        "span_days": 28,
+        "centroid_lat": 22.37768808988764,
+        "centroid_lon": 87.27926460674158,
+        "satellites": {
+          "N20": 27,
+          "N21": 34,
+          "VIIRS": 28
+        },
+        "frp_max": 10.47,
+        "frp_mean": 3.264831460674157
+      },
+      {
+        "cluster_id": 19,
+        "size": 80,
+        "distinct_dates": 9,
+        "span_days": 27,
+        "centroid_lat": 21.74950575,
+        "centroid_lon": 83.84354225,
+        "satellites": {
+          "N20": 29,
+          "N21": 20,
+          "VIIRS": 31
+        },
+        "frp_max": 23.16,
+        "frp_mean": 5.668625
+      },
+      {
+        "cluster_id": 27,
+        "size": 76,
+        "distinct_dates": 13,
+        "span_days": 26,
+        "centroid_lat": 22.791127499999998,
+        "centroid_lon": 86.20301671052633,
+        "satellites": {
+          "N20": 25,
+          "N21": 25,
+          "VIIRS": 26
+        },
+        "frp_max": 8.88,
+        "frp_mean": 2.4147368421052637
+      },
+      {
+        "cluster_id": 371,
+        "size": 72,
+        "distinct_dates": 13,
+        "span_days": 22,
+        "centroid_lat": 23.715179583333335,
+        "centroid_lon": 86.44638513888889,
+        "satellites": {
+          "N20": 22,
+          "N21": 21,
+          "VIIRS": 29
+        },
+        "frp_max": 8.89,
+        "frp_mean": 2.4388888888888887
+      },
+      {
+        "cluster_id": 155,
+        "size": 67,
+        "distinct_dates": 9,
+        "span_days": 25,
+        "centroid_lat": 20.79448910447761,
+        "centroid_lon": 85.2572271641791,
+        "satellites": {
+          "N20": 36,
+          "N21": 14,
+          "VIIRS": 17
+        },
+        "frp_max": 11.97,
+        "frp_mean": 2.836417910447761
+      }
+    ],
+    "longest_persistence": [
+      {
+        "cluster_id": 62,
+        "size": 60,
+        "distinct_dates": 17,
+        "span_days": 29,
+        "centroid_lat": 23.803367833333333,
+        "centroid_lon": 86.32856716666667,
+        "satellites": {
+          "N20": 23,
+          "N21": 25,
+          "VIIRS": 12
+        },
+        "frp_max": 10.59,
+        "frp_mean": 2.768499999999999
+      },
+      {
+        "cluster_id": 103,
+        "size": 37,
+        "distinct_dates": 14,
+        "span_days": 29,
+        "centroid_lat": 11.813115675675675,
+        "centroid_lon": 77.92013108108108,
+        "satellites": {
+          "N20": 18,
+          "N21": 9,
+          "VIIRS": 10
+        },
+        "frp_max": 3.37,
+        "frp_mean": 1.5002702702702704
+      },
+      {
+        "cluster_id": 332,
+        "size": 25,
+        "distinct_dates": 14,
+        "span_days": 29,
+        "centroid_lat": 26.876032,
+        "centroid_lon": 73.51553600000001,
+        "satellites": {
+          "N20": 9,
+          "N21": 6,
+          "VIIRS": 10
+        },
+        "frp_max": 2.95,
+        "frp_mean": 1.4912
+      },
+      {
+        "cluster_id": 1786,
+        "size": 8,
+        "distinct_dates": 7,
+        "span_days": 29,
+        "centroid_lat": 11.1823725,
+        "centroid_lon": 79.1004575,
+        "satellites": {
+          "N20": 3,
+          "N21": 1,
+          "VIIRS": 4
+        },
+        "frp_max": 2.46,
+        "frp_mean": 1.3375
+      },
+      {
+        "cluster_id": 33,
+        "size": 89,
+        "distinct_dates": 17,
+        "span_days": 28,
+        "centroid_lat": 22.37768808988764,
+        "centroid_lon": 87.27926460674158,
+        "satellites": {
+          "N20": 27,
+          "N21": 34,
+          "VIIRS": 28
+        },
+        "frp_max": 10.47,
+        "frp_mean": 3.264831460674157
+      }
+    ],
+    "eps_m": 500
+  },
+  "candidate_anomalies": {
+    "note": "Candidate discovery only \u2014 NOT ground-truth labels. High FRP != industrial fire. Ranking uses normalized FRP/BT/persistence/cluster + small night bonus; anti-leakage: no distance_to_industry used.",
+    "top20_ranked": [
+      {
+        "id": "FIRMS_5C825D49",
+        "latitude": 8.74034,
+        "longitude": 77.6055,
+        "frp": 239.09,
+        "brightness_temperature": 340.56,
+        "confidence": 60.0,
+        "timestamp": "2026-08-19T08:52:00Z",
+        "satellite": "N20",
+        "persist_size": 2.0,
+        "distinct_dates": 2.0,
+        "candidate_score": 0.5774893744767825,
+        "daynight_approx": "D"
+      },
+      {
+        "id": "FIRMS_60E7F531",
+        "latitude": 15.19627,
+        "longitude": 76.08163,
+        "frp": 2.54,
+        "brightness_temperature": 337.68,
+        "confidence": 60.0,
+        "timestamp": "2026-08-10T08:22:00Z",
+        "satellite": "N20",
+        "persist_size": 274.0,
+        "distinct_dates": 21.0,
+        "candidate_score": 0.5671367308342421,
+        "daynight_approx": "D"
+      },
+      {
+        "id": "FIRMS_7DFBE5E8",
+        "latitude": 22.20957,
+        "longitude": 84.86221,
+        "frp": 1.66,
+        "brightness_temperature": 304.71,
+        "confidence": 60.0,
+        "timestamp": "2026-08-11T20:14:00Z",
+        "satellite": "VIIRS",
+        "persist_size": 156.0,
+        "distinct_dates": 16.0,
+        "candidate_score": 0.43776322304141363,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_E5B056EA",
+        "latitude": 23.73722,
+        "longitude": 86.43314,
+        "frp": 6.64,
+        "brightness_temperature": 329.09,
+        "confidence": 60.0,
+        "timestamp": "2026-08-07T19:49:00Z",
+        "satellite": "VIIRS",
+        "persist_size": 89.0,
+        "distinct_dates": 17.0,
+        "candidate_score": 0.4376689664755441,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_282AFC9E",
+        "latitude": 22.21157,
+        "longitude": 84.86518,
+        "frp": 1.61,
+        "brightness_temperature": 304.41,
+        "confidence": 60.0,
+        "timestamp": "2026-08-10T19:57:00Z",
+        "satellite": "N21",
+        "persist_size": 156.0,
+        "distinct_dates": 16.0,
+        "candidate_score": 0.43730232758873205,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_04610F3F",
+        "latitude": 22.21289,
+        "longitude": 84.86283,
+        "frp": 1.5,
+        "brightness_temperature": 304.32,
+        "confidence": 60.0,
+        "timestamp": "2026-08-11T20:14:00Z",
+        "satellite": "VIIRS",
+        "persist_size": 156.0,
+        "distinct_dates": 16.0,
+        "candidate_score": 0.437005023211738,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_7B5681E0",
+        "latitude": 23.73754,
+        "longitude": 86.43292,
+        "frp": 3.64,
+        "brightness_temperature": 331.81,
+        "confidence": 60.0,
+        "timestamp": "2026-08-20T19:23:00Z",
+        "satellite": "N20",
+        "persist_size": 89.0,
+        "distinct_dates": 17.0,
+        "candidate_score": 0.43606666321591264,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_84B48DBE",
+        "latitude": 22.20884,
+        "longitude": 84.86089,
+        "frp": 0.88,
+        "brightness_temperature": 301.49,
+        "confidence": 60.0,
+        "timestamp": "2026-08-10T19:57:00Z",
+        "satellite": "N21",
+        "persist_size": 156.0,
+        "distinct_dates": 16.0,
+        "candidate_score": 0.43240892381046153,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_0A163F99",
+        "latitude": 23.73633,
+        "longitude": 86.43303,
+        "frp": 2.38,
+        "brightness_temperature": 330.14,
+        "confidence": 60.0,
+        "timestamp": "2026-08-22T20:08:00Z",
+        "satellite": "VIIRS",
+        "persist_size": 89.0,
+        "distinct_dates": 17.0,
+        "candidate_score": 0.4318576425370261,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_C850652C",
+        "latitude": 22.20951,
+        "longitude": 84.86139,
+        "frp": 1.42,
+        "brightness_temperature": 299.6,
+        "confidence": 60.0,
+        "timestamp": "2026-08-06T20:27:00Z",
+        "satellite": "N20",
+        "persist_size": 156.0,
+        "distinct_dates": 16.0,
+        "candidate_score": 0.43093660412927387,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_A2C62E43",
+        "latitude": 23.79827,
+        "longitude": 86.34924,
+        "frp": 3.51,
+        "brightness_temperature": 325.36,
+        "confidence": 60.0,
+        "timestamp": "2026-08-02T19:42:00Z",
+        "satellite": "VIIRS",
+        "persist_size": 144.0,
+        "distinct_dates": 13.0,
+        "candidate_score": 0.42803243838787947,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_1267EF22",
+        "latitude": 23.79856,
+        "longitude": 86.35028,
+        "frp": 1.95,
+        "brightness_temperature": 327.19,
+        "confidence": 60.0,
+        "timestamp": "2026-08-08T19:30:00Z",
+        "satellite": "VIIRS",
+        "persist_size": 144.0,
+        "distinct_dates": 13.0,
+        "candidate_score": 0.4277217779406204,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_4346B8FA",
+        "latitude": 23.7374,
+        "longitude": 86.4341,
+        "frp": 3.28,
+        "brightness_temperature": 324.26,
+        "confidence": 60.0,
+        "timestamp": "2026-08-20T20:46:00Z",
+        "satellite": "VIIRS",
+        "persist_size": 89.0,
+        "distinct_dates": 17.0,
+        "candidate_score": 0.4259713252795874,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_701C161D",
+        "latitude": 22.21023,
+        "longitude": 84.86258,
+        "frp": 3.63,
+        "brightness_temperature": 331.63,
+        "confidence": 60.0,
+        "timestamp": "2026-08-26T07:29:00Z",
+        "satellite": "N21",
+        "persist_size": 156.0,
+        "distinct_dates": 16.0,
+        "candidate_score": 0.42490785623754446,
+        "daynight_approx": "D"
+      },
+      {
+        "id": "FIRMS_5C8F1359",
+        "latitude": 22.21098,
+        "longitude": 84.86469,
+        "frp": 3.46,
+        "brightness_temperature": 331.67,
+        "confidence": 60.0,
+        "timestamp": "2026-08-04T07:41:00Z",
+        "satellite": "N21",
+        "persist_size": 156.0,
+        "distinct_dates": 16.0,
+        "candidate_score": 0.4246735582879705,
+        "daynight_approx": "D"
+      },
+      {
+        "id": "FIRMS_406628F2",
+        "latitude": 23.79657,
+        "longitude": 86.35204,
+        "frp": 4.0,
+        "brightness_temperature": 321.86,
+        "confidence": 60.0,
+        "timestamp": "2026-08-22T19:32:00Z",
+        "satellite": "N21",
+        "persist_size": 144.0,
+        "distinct_dates": 13.0,
+        "candidate_score": 0.42445214963863115,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_4EA60808",
+        "latitude": 23.79679,
+        "longitude": 86.34998,
+        "frp": 3.47,
+        "brightness_temperature": 321.22,
+        "confidence": 60.0,
+        "timestamp": "2026-08-02T19:42:00Z",
+        "satellite": "VIIRS",
+        "persist_size": 144.0,
+        "distinct_dates": 13.0,
+        "candidate_score": 0.4227602204226972,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_1680276A",
+        "latitude": 23.73648,
+        "longitude": 86.43156,
+        "frp": 2.76,
+        "brightness_temperature": 319.98,
+        "confidence": 60.0,
+        "timestamp": "2026-08-09T19:30:00Z",
+        "satellite": "N20",
+        "persist_size": 89.0,
+        "distinct_dates": 17.0,
+        "candidate_score": 0.4197195351718214,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_FCFC2846",
+        "latitude": 23.73801,
+        "longitude": 86.43526,
+        "frp": 1.76,
+        "brightness_temperature": 321.21,
+        "confidence": 60.0,
+        "timestamp": "2026-08-22T19:32:00Z",
+        "satellite": "N21",
+        "persist_size": 89.0,
+        "distinct_dates": 17.0,
+        "candidate_score": 0.4195919637053584,
+        "daynight_approx": "N"
+      },
+      {
+        "id": "FIRMS_95300BF4",
+        "latitude": 23.79437,
+        "longitude": 86.35352,
+        "frp": 2.4,
+        "brightness_temperature": 319.83,
+        "confidence": 60.0,
+        "timestamp": "2026-08-02T20:02:00Z",
+        "satellite": "N20",
+        "persist_size": 144.0,
+        "distinct_dates": 13.0,
+        "candidate_score": 0.4192213174951257,
+        "daynight_approx": "N"
+      }
+    ],
+    "frp_p95_threshold": 9.02,
+    "bt_p95_threshold": 343.428
+  },
+  "limitations": {
+    "note": "Exploratory analysis, not ground truth. No labeling, no model training. Persistence uses spatial radius 500m/1km thresholds from geospatial enrichment. State-level analysis skipped (no state boundary file). Day/night approximated from hour (6-18 day) because cleaned CSV lacks daynight column.",
+    "bbox_note": "India bounding box 68,6,98,36 includes neighbors; boundary filtering to MultiPolygon country polygon corrects this. Filtered 6523/12318 remain (52.96%).",
+    "boundary_scale": "Natural Earth 1:50m public domain \u2014 prototype, not survey-grade"
+  },
+  "artifacts": {
+    "eda_report": "data/firms/analysis/eda_report.json",
+    "plots": [
+      "data/firms/analysis/daily_count.png",
+      "data/firms/analysis/frp_hist.png",
+      "data/firms/analysis/bt_hist.png",
+      "data/firms/analysis/confidence_hist.png",
+      "data/firms/analysis/satellite_pie.png",
+      "data/firms/analysis/hourly_hist.png",
+      "data/firms/analysis/spatial_scatter.png",
+      "data/firms/analysis/persistent_map.png"
+    ],
+    "interactive_map": "data/firms/analysis/india_hotspots.html"
+  }
+}

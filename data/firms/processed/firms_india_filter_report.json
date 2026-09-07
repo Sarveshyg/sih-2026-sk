@@ -1,0 +1,13 @@
+{
+  "boundary_path": "data\\geospatial\\boundaries\\india.geojson",
+  "boundary_type": "MultiPolygon",
+  "crs": "EPSG:4326",
+  "crs_name": "WGS84",
+  "input_path": "data\\firms\\processed\\firms_clean.csv",
+  "output_path": "data\\firms\\processed\\firms_india.csv",
+  "original_records": 12318,
+  "records_inside_india": 6523,
+  "records_outside_india": 5795,
+  "inside_pct": 52.96,
+  "outside_pct": 47.04
+}

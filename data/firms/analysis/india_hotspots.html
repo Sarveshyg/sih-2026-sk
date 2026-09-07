@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head><meta charset='utf-8'><title>India Hotspots</title>
+<link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'/>
+<script src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'></script>
+<style>#map{height:90vh;}</style>
+</head><body><h3>India FIRMS Hotspots — Top 20 Candidates (exploratory, not labels)</h3><div id='map'></div>
+<script>
+var map = L.map('map').setView([18.934997531810517,81.3260476099954], 5);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:10, attribution:'© OpenStreetMap | Natural Earth boundary'}).addTo(map);
+  L.circleMarker([8.74034, 77.6055], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 239.09<br>FIRMS_5C825D49');
+  L.circleMarker([15.19627, 76.08163], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 2.54<br>FIRMS_60E7F531');
+  L.circleMarker([22.20957, 84.86221], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 1.66<br>FIRMS_7DFBE5E8');
+  L.circleMarker([23.73722, 86.43314], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 6.64<br>FIRMS_E5B056EA');
+  L.circleMarker([22.21157, 84.86518], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 1.61<br>FIRMS_282AFC9E');
+  L.circleMarker([22.21289, 84.86283], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 1.5<br>FIRMS_04610F3F');
+  L.circleMarker([23.73754, 86.43292], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 3.64<br>FIRMS_7B5681E0');
+  L.circleMarker([22.20884, 84.86089], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 0.88<br>FIRMS_84B48DBE');
+  L.circleMarker([23.73633, 86.43303], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 2.38<br>FIRMS_0A163F99');
+  L.circleMarker([22.20951, 84.86139], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 1.42<br>FIRMS_C850652C');
+  L.circleMarker([23.79827, 86.34924], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 3.51<br>FIRMS_A2C62E43');
+  L.circleMarker([23.79856, 86.35028], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 1.95<br>FIRMS_1267EF22');
+  L.circleMarker([23.7374, 86.4341], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 3.28<br>FIRMS_4346B8FA');
+  L.circleMarker([22.21023, 84.86258], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 3.63<br>FIRMS_701C161D');
+  L.circleMarker([22.21098, 84.86469], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 3.46<br>FIRMS_5C8F1359');
+  L.circleMarker([23.79657, 86.35204], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 4.0<br>FIRMS_406628F2');
+  L.circleMarker([23.79679, 86.34998], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 3.47<br>FIRMS_4EA60808');
+  L.circleMarker([23.73648, 86.43156], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 2.76<br>FIRMS_1680276A');
+  L.circleMarker([23.73801, 86.43526], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 1.76<br>FIRMS_FCFC2846');
+  L.circleMarker([23.79437, 86.35352], {radius:6, color:'red'}).addTo(map).bindPopup('FRP 2.4<br>FIRMS_95300BF4');
+
+</script><p>Exploratory candidates ranked by FRP/BT/persistence; not ground truth.</p></body></html>

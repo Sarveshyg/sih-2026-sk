@@ -1,0 +1,136 @@
+{
+  "generated_at": "2026-09-07T11:08:29.661121Z",
+  "input_records": 6523,
+  "output_records": 6523,
+  "records_with_osm_match": 6523,
+  "records_without_osm_match": 0,
+  "osm_coverage_pct": 100.0,
+  "records_with_landcover": 0,
+  "records_without_landcover": 6523,
+  "landcover_coverage_pct": 0.0,
+  "facility_count": 11,
+  "unique_osm_ids": 11,
+  "facility_type_distribution": {
+    "refinery": 1,
+    "chemical": 1,
+    "power_plant": 2,
+    "steel": 1,
+    "cement": 1,
+    "factory": 2,
+    "oil_gas": 1,
+    "other": 1,
+    "industrial_area": 1
+  },
+  "facility_category_distribution": {
+    "industrial": 8,
+    "power": 2,
+    "oil_gas": 2,
+    "other": 1
+  },
+  "landcover_distribution": {
+    "unknown": 6523
+  },
+  "missingness_by_feature": {
+    "id": 0,
+    "latitude": 0,
+    "longitude": 0,
+    "frp": 0,
+    "brightness_temperature": 0,
+    "confidence": 0,
+    "timestamp": 0,
+    "satellite": 0,
+    "persistence": 0,
+    "persistence_score": 0,
+    "detections_24h": 0,
+    "detections_7d": 0,
+    "detections_30d": 0,
+    "hotspot_cluster_size": 0,
+    "facility_baseline": 0,
+    "facility_current_activity": 0,
+    "facility_anomaly": 2128,
+    "current_activity": 0,
+    "activity_anomaly": 2128,
+    "nearest_facility_distance_m": 0,
+    "distance_to_industry": 0,
+    "distance_to_facility_m": 0,
+    "nearest_facility_type": 0,
+    "facility_type": 0,
+    "nearest_facility_osm_id": 0,
+    "nearest_facility_id": 0,
+    "nearest_facility_name": 0,
+    "facility_count_500m": 0,
+    "facility_count_1km": 0,
+    "industrial_facility_count_500m": 0,
+    "industrial_facility_count_1km": 0,
+    "power_facility_count_1km": 0,
+    "oil_gas_facility_count_1km": 0,
+    "nearest_powerplant_distance_m": 0,
+    "nearest_refinery_distance_m": 0,
+    "nearest_oil_gas_distance_m": 0,
+    "nearest_steel_facility_distance_m": 0,
+    "nearest_cement_facility_distance_m": 0,
+    "landcover_class": 0,
+    "distance_to_forest": 6523,
+    "distance_to_forest_m": 6523,
+    "distance_to_agriculture": 6523,
+    "distance_to_agriculture_m": 6523,
+    "forest_fraction": 6523,
+    "agriculture_fraction": 6523,
+    "industrial_fraction": 6523,
+    "builtup_fraction": 6523,
+    "water_fraction": 6523,
+    "bare_fraction": 6523,
+    "hour_utc": 0,
+    "day_of_week": 0,
+    "month": 0,
+    "daynight": 0
+  },
+  "distance_statistics": {
+    "min": 6654.041281424237,
+    "max": 1693947.4703343988,
+    "mean": 362099.11529949505,
+    "median": 246410.76598577594,
+    "p95": 1133330.237490601
+  },
+  "temporal_feature_statistics": {
+    "persistence": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.340199110727697
+    },
+    "detections_24h": {
+      "min": 0.0,
+      "max": 14.0,
+      "mean": 0.9822167714241913
+    },
+    "detections_7d": {
+      "min": 0.0,
+      "max": 37.0,
+      "mean": 3.331135980377127
+    },
+    "hotspot_cluster_size": {
+      "min": 1.0,
+      "max": 146.0,
+      "mean": 13.151310746588992
+    },
+    "facility_anomaly": {
+      "min": -1.0,
+      "max": 3.285714285714286,
+      "mean": 1.6150008156084985
+    }
+  },
+  "crs": "EPSG:4326",
+  "processing_timestamp": "2026-09-07T11:08:29.661147Z",
+  "osm_download": {
+    "facility_count": 11,
+    "from_cache": true,
+    "endpoint": "https://overpass-api.de/api/interpreter"
+  },
+  "landcover": {
+    "source": null,
+    "loaded": false,
+    "note": "No local land-cover dataset; landcover_class=unknown, fractions=null"
+  },
+  "temporal_leakage_safe": true,
+  "daynight_recovered": 6523
+}

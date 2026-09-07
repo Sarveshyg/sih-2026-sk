@@ -1,0 +1,18 @@
+{
+  "method": "spatial_grouping + temporal_separation (500m cluster, sorted by earliest timestamp)",
+  "total": 6523,
+  "train": 4567,
+  "val": 978,
+  "test": 978,
+  "train_pct": 70.01,
+  "val_pct": 14.99,
+  "test_pct": 14.99,
+  "n_spatial_clusters": 1870,
+  "train_clusters": 705,
+  "val_clusters": 521,
+  "test_clusters": 644,
+  "temporal_note": "Clusters sorted by earliest timestamp; train gets earliest, test gets latest \u2014 no future leakage, no spatial overlap",
+  "leakage_safe": true,
+  "random_state": 42,
+  "cluster_col": "_spatial_cluster_id"
+}

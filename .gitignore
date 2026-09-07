@@ -15,8 +15,10 @@ venv/
 # Data - raw NASA downloads (never commit large NASA dumps)
 data/firms/raw/
 data/firms/raw_combined.csv
-data/firms/processed/
+# Keep small processed datasets, reports, VEDAS outputs — do not ignore entire processed
+# data/firms/processed/  # intentionally not ignored — keep small CSV/JSON reports (firms_india.csv 0.5MB, firms_enriched_vedas.csv 0.8MB, reports <100KB)
 data/geospatial/cache/
+*.osm.pbf
 # Keep demo/small data under data/demo if needed — not ignored
 
 # OS

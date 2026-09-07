@@ -1,0 +1,31 @@
+{
+  "source_files": {
+    "Vedas_Power_Plants.geojson": 534,
+    "Vedas_Oil_Refineries.geojson": 23,
+    "Vedas_Oil_Wells.geojson": 18949,
+    "Vedas_Ethanol_Plants.geojson": 320,
+    "Vedas_Wind_Farms.geojson": 20,
+    "Vedas_Solar_Power_Plants.geojson": 166
+  },
+  "total_records": 20012,
+  "geometry_types": [
+    "Point"
+  ],
+  "crs": "EPSG:4326",
+  "bbox": [
+    66.8414,
+    6.6653,
+    96.2016,
+    34.4928
+  ],
+  "facility_type_counts": {
+    "power_plant": 534,
+    "oil_refinery": 23,
+    "oil_well": 18949,
+    "ethanol_plant": 320,
+    "wind_farm": 20,
+    "solar_plant": 166
+  },
+  "invalid_geometry_count": 0,
+  "missing_coordinate_count": 0
+}

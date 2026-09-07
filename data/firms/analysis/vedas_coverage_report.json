@@ -1,0 +1,60 @@
+{
+  "total_firms": 6523,
+  "within_500m": 106,
+  "within_1km": 165,
+  "within_5km": 990,
+  "pct_500m": 1.63,
+  "pct_1km": 2.53,
+  "pct_5km": 15.18,
+  "per_type_1km": {
+    "power_plant": {
+      "count": 3,
+      "pct": 0.05
+    },
+    "oil_refinery": {
+      "count": 11,
+      "pct": 0.17
+    },
+    "oil_well": {
+      "count": 146,
+      "pct": 2.24
+    },
+    "ethanol_plant": {
+      "count": 5,
+      "pct": 0.08
+    },
+    "wind_farm": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "solar_plant": {
+      "count": 0,
+      "pct": 0.0
+    }
+  },
+  "median_nearest_m": 11883.957394804203,
+  "p95_nearest_m": 56658.58935450612,
+  "nearest_category_distribution": {
+    "oil_well": 2187,
+    "ethanol_plant": 752,
+    "power_plant": 2610,
+    "solar_plant": 601,
+    "oil_refinery": 166,
+    "wind_farm": 207
+  },
+  "no_within_5km": 5533,
+  "pct_no_within_5km": 84.82,
+  "facility_total": 20012,
+  "facility_types": {
+    "power_plant": 534,
+    "oil_refinery": 23,
+    "oil_well": 18949,
+    "ethanol_plant": 320,
+    "wind_farm": 20,
+    "solar_plant": 166
+  },
+  "invalid_geometries": 0,
+  "missing_coordinates": 0,
+  "crs": "EPSG:4326",
+  "note": "VEDAS is contextual, not ground truth. Coverage is sparse (15% within 5km), as expected for 20k VEDAS facilities vs 6.5k FIRMS."
+}

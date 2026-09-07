@@ -1,0 +1,513 @@
+{
+  "generated_at": "2026-09-07T12:21:17.853207Z",
+  "input": "data\\firms\\processed\\firms_india.csv",
+  "total_samples": 6523,
+  "split": {
+    "method": "spatial_grouping + temporal_separation (500m cluster, sorted by earliest timestamp)",
+    "total": 6523,
+    "train": 4567,
+    "val": 978,
+    "test": 978,
+    "train_pct": 70.01,
+    "val_pct": 14.99,
+    "test_pct": 14.99,
+    "n_spatial_clusters": 1870,
+    "train_clusters": 705,
+    "val_clusters": 521,
+    "test_clusters": 644,
+    "temporal_note": "Clusters sorted by earliest timestamp; train gets earliest, test gets latest \u2014 no future leakage, no spatial overlap",
+    "leakage_safe": true,
+    "random_state": 42,
+    "cluster_col": "_spatial_cluster_id"
+  },
+  "features_used": [
+    "latitude",
+    "longitude",
+    "frp",
+    "brightness_temperature",
+    "confidence",
+    "hour_utc",
+    "day_of_week",
+    "month",
+    "detections_24h",
+    "detections_7d",
+    "detections_30d",
+    "persistence",
+    "hotspot_cluster_size",
+    "facility_baseline",
+    "facility_current_activity",
+    "facility_anomaly",
+    "_cluster_size_500",
+    "_distinct_dates",
+    "_span_days"
+  ],
+  "label_method": "weak_rule_v1",
+  "class_counts_train": {
+    "persistent_industrial_thermal_source": 2678,
+    "agricultural_fire": 1421,
+    "industrial_fire": 289,
+    "unknown": 112,
+    "wildfire": 8,
+    "gas_flare": 59
+  },
+  "class_counts_val": {
+    "agricultural_fire": 780,
+    "persistent_industrial_thermal_source": 99,
+    "unknown": 8,
+    "industrial_fire": 83,
+    "wildfire": 4,
+    "gas_flare": 4
+  },
+  "class_counts_test": {
+    "agricultural_fire": 892,
+    "industrial_fire": 64,
+    "persistent_industrial_thermal_source": 18,
+    "unknown": 1,
+    "wildfire": 3
+  },
+  "xgboost_params": {
+    "n_estimators": 200,
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "random_state": 42
+  },
+  "feature_importance": {
+    "facility_baseline": 0.38339513540267944,
+    "hotspot_cluster_size": 0.18922100961208344,
+    "persistence": 0.06909407675266266,
+    "detections_7d": 0.06255189329385757,
+    "detections_30d": 0.0563703328371048,
+    "facility_anomaly": 0.03739407658576965,
+    "_distinct_dates": 0.03505600243806839,
+    "frp": 0.030995186418294907,
+    "detections_24h": 0.025372589007019997,
+    "_span_days": 0.021943721920251846,
+    "facility_current_activity": 0.018003705888986588,
+    "hour_utc": 0.015750372782349586,
+    "brightness_temperature": 0.013147158548235893,
+    "_cluster_size_500": 0.010708162561058998,
+    "confidence": 0.009638641960918903,
+    "latitude": 0.007012221962213516,
+    "day_of_week": 0.005918882321566343,
+    "longitude": 0.004486601334065199,
+    "satellite": 0.002621718216687441,
+    "daynight": 0.001318444381467998,
+    "month": 0.0
+  },
+  "metrics_val_xgboost": {
+    "accuracy": 0.9631901840490797,
+    "macro_precision": 0.7046903460837887,
+    "macro_recall": 0.661080218309134,
+    "macro_f1": 0.6762451688922276,
+    "weighted_f1": 0.9609931214045253,
+    "per_class": {
+      "agricultural_fire": {
+        "precision": 0.9935897435897436,
+        "recall": 0.9935897435897436,
+        "f1": 0.9935897435897436,
+        "support": 780
+      },
+      "gas_flare": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      },
+      "industrial_fire": {
+        "precision": 0.9230769230769231,
+        "recall": 0.7228915662650602,
+        "f1": 0.8108108108108109,
+        "support": 83
+      },
+      "persistent_industrial_thermal_source": {
+        "precision": 0.8114754098360656,
+        "recall": 1.0,
+        "f1": 0.8959276018099548,
+        "support": 99
+      },
+      "wildfire": {
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5,
+        "support": 4
+      },
+      "unknown": {
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571428571428571,
+        "support": 8
+      }
+    },
+    "confusion_matrix": [
+      [
+        775,
+        0,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        60,
+        18,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        99,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        0,
+        6
+      ]
+    ],
+    "labels": [
+      "agricultural_fire",
+      "gas_flare",
+      "industrial_fire",
+      "persistent_industrial_thermal_source",
+      "wildfire",
+      "unknown"
+    ]
+  },
+  "metrics_val_baseline": {
+    "accuracy": 0.8057259713701431,
+    "macro_precision": 0.437847995194322,
+    "macro_recall": 0.24542942554990746,
+    "macro_f1": 0.22299433568090285,
+    "weighted_f1": 0.7942400181389286,
+    "per_class": {
+      "agricultural_fire": {
+        "precision": 0.9214975845410628,
+        "recall": 0.9782051282051282,
+        "f1": 0.9490049751243781,
+        "support": 780
+      },
+      "gas_flare": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      },
+      "industrial_fire": {
+        "precision": 1.0,
+        "recall": 0.012048192771084338,
+        "f1": 0.023809523809523808,
+        "support": 83
+      },
+      "persistent_industrial_thermal_source": {
+        "precision": 0.696969696969697,
+        "recall": 0.23232323232323232,
+        "f1": 0.3484848484848485,
+        "support": 99
+      },
+      "wildfire": {
+        "precision": 0.008620689655172414,
+        "recall": 0.25,
+        "f1": 0.016666666666666666,
+        "support": 4
+      },
+      "unknown": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 8
+      }
+    },
+    "confusion_matrix": [
+      [
+        763,
+        0,
+        0,
+        1,
+        16,
+        0
+      ],
+      [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        41,
+        0,
+        1,
+        9,
+        32,
+        0
+      ],
+      [
+        13,
+        0,
+        0,
+        23,
+        63,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        4,
+        0,
+        0,
+        0,
+        4,
+        0
+      ]
+    ],
+    "labels": [
+      "agricultural_fire",
+      "gas_flare",
+      "industrial_fire",
+      "persistent_industrial_thermal_source",
+      "wildfire",
+      "unknown"
+    ]
+  },
+  "metrics_test_xgboost": {
+    "accuracy": 0.983640081799591,
+    "macro_precision": 0.5605178637787334,
+    "macro_recall": 0.5392579098156453,
+    "macro_f1": 0.549302916723086,
+    "weighted_f1": 0.9824166340050523,
+    "per_class": {
+      "agricultural_fire": {
+        "precision": 0.9910813823857302,
+        "recall": 0.9966367713004485,
+        "f1": 0.9938513135830073,
+        "support": 892
+      },
+      "gas_flare": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "industrial_fire": {
+        "precision": 0.9365079365079365,
+        "recall": 0.921875,
+        "f1": 0.9291338582677166,
+        "support": 64
+      },
+      "persistent_industrial_thermal_source": {
+        "precision": 0.875,
+        "recall": 0.7777777777777778,
+        "f1": 0.8235294117647058,
+        "support": 18
+      },
+      "wildfire": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3
+      },
+      "unknown": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      }
+    },
+    "confusion_matrix": [
+      [
+        889,
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        59,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        3,
+        14,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    "labels": [
+      "agricultural_fire",
+      "gas_flare",
+      "industrial_fire",
+      "persistent_industrial_thermal_source",
+      "wildfire",
+      "unknown"
+    ]
+  },
+  "metrics_test_baseline": {
+    "accuracy": 0.8895705521472392,
+    "macro_precision": 0.31154616240266964,
+    "macro_recall": 0.2930493273542601,
+    "macro_f1": 0.30138571646109336,
+    "weighted_f1": 0.8869662808683064,
+    "per_class": {
+      "agricultural_fire": {
+        "precision": 0.9577308120133482,
+        "recall": 0.9652466367713004,
+        "f1": 0.9614740368509213,
+        "support": 892
+      },
+      "gas_flare": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "industrial_fire": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 64
+      },
+      "persistent_industrial_thermal_source": {
+        "precision": 0.6,
+        "recall": 0.5,
+        "f1": 0.5454545454545454,
+        "support": 18
+      },
+      "wildfire": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3
+      },
+      "unknown": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      }
+    },
+    "confusion_matrix": [
+      [
+        861,
+        0,
+        4,
+        0,
+        27,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        32,
+        0,
+        0,
+        6,
+        26,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        9,
+        7,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "labels": [
+      "agricultural_fire",
+      "gas_flare",
+      "industrial_fire",
+      "persistent_industrial_thermal_source",
+      "wildfire",
+      "unknown"
+    ]
+  },
+  "model_path": "models\\xgboost_prototype.json",
+  "test_predictions": "data\\firms\\ml\\test_predictions.csv",
+  "leakage_note": "Weak labels derived from persistence/detections/hotspot; same features used for training => weak-supervision baseline, not independent. Test set held out via spatial grouping + temporal sorting, untouched during development.",
+  "scientific_honesty": "FIRMS are real, weak labels are NOT ground truth, OSM 0% (synthetic not used), land-cover 0%, evaluation preliminary, requires human verification."
+}

@@ -1,0 +1,380 @@
+{
+  "id": {
+    "datatype": "string",
+    "unit": null,
+    "source": "FIRMS",
+    "description": "Deterministic FIRMS ID",
+    "derived": false,
+    "leakage_sensitive": false,
+    "missing": "never"
+  },
+  "latitude": {
+    "datatype": "float",
+    "unit": "degrees",
+    "source": "FIRMS",
+    "description": "WGS84 latitude",
+    "derived": false,
+    "leakage_sensitive": false,
+    "missing": "never"
+  },
+  "longitude": {
+    "datatype": "float",
+    "unit": "degrees",
+    "source": "FIRMS",
+    "description": "WGS84 longitude",
+    "derived": false,
+    "leakage_sensitive": false,
+    "missing": "never"
+  },
+  "frp": {
+    "datatype": "float",
+    "unit": "MW",
+    "source": "FIRMS",
+    "description": "Fire Radiative Power",
+    "derived": false,
+    "leakage_sensitive": false,
+    "missing": "never (invalid rows filtered)"
+  },
+  "brightness_temperature": {
+    "datatype": "float",
+    "unit": "K",
+    "source": "FIRMS",
+    "description": "Brightness temperature (bright_ti4 priority)",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "never"
+  },
+  "confidence": {
+    "datatype": "float",
+    "unit": "0-100",
+    "source": "FIRMS",
+    "description": "Normalized confidence (h\u219290,n\u219260,l\u219230)",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "never"
+  },
+  "timestamp": {
+    "datatype": "string",
+    "unit": "ISO8601 UTC",
+    "source": "FIRMS",
+    "description": "Acquisition time",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "never"
+  },
+  "satellite": {
+    "datatype": "string",
+    "unit": null,
+    "source": "FIRMS",
+    "description": "Satellite (N20/N21/VIIRS)",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "never"
+  },
+  "persistence": {
+    "datatype": "float",
+    "unit": "0-1",
+    "source": "Temporal",
+    "description": "Persistence score max(0.7*det7d/10+0.3*det24h/5, 0.8*(1-exp(-0.35*det7d)))",
+    "derived": true,
+    "leakage_sensitive": true,
+    "missing": "0 if no history"
+  },
+  "detections_24h": {
+    "datatype": "int",
+    "unit": "count",
+    "source": "Temporal",
+    "description": "Detections within 500m and 24h before event (leakage_safe)",
+    "derived": true,
+    "leakage_sensitive": true,
+    "missing": "0"
+  },
+  "detections_7d": {
+    "datatype": "int",
+    "unit": "count",
+    "source": "Temporal",
+    "description": "Within 500m and 7d before",
+    "derived": true,
+    "leakage_sensitive": true,
+    "missing": "0"
+  },
+  "detections_30d": {
+    "datatype": "int",
+    "unit": "count",
+    "source": "Temporal",
+    "description": "Within 500m and 30d before",
+    "derived": true,
+    "leakage_sensitive": true,
+    "missing": "0"
+  },
+  "hotspot_cluster_size": {
+    "datatype": "int",
+    "unit": "count",
+    "source": "Temporal",
+    "description": "Cluster size within 1km (leakage_safe: only past)",
+    "derived": true,
+    "leakage_sensitive": true,
+    "missing": "1 (self)"
+  },
+  "facility_baseline": {
+    "datatype": "float",
+    "unit": "detections/day",
+    "source": "Temporal",
+    "description": "Facility baseline over 30d window",
+    "derived": true,
+    "leakage_sensitive": true,
+    "missing": "float or None"
+  },
+  "facility_current_activity": {
+    "datatype": "float",
+    "unit": "detections/day",
+    "source": "Temporal",
+    "description": "Current activity last 7d",
+    "derived": true,
+    "leakage_sensitive": true,
+    "missing": "0"
+  },
+  "facility_anomaly": {
+    "datatype": "float",
+    "unit": "ratio",
+    "source": "Temporal",
+    "description": "(current-baseline)/baseline",
+    "derived": true,
+    "leakage_sensitive": true,
+    "missing": "None if baseline 0"
+  },
+  "nearest_facility_distance_m": {
+    "datatype": "float",
+    "unit": "meters",
+    "source": "OSM",
+    "description": "Haversine to nearest OSM facility",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None if no OSM"
+  },
+  "nearest_facility_type": {
+    "datatype": "string",
+    "unit": null,
+    "source": "OSM",
+    "description": "Canonical type refinery/power_plant/factory/...",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "nearest_facility_osm_id": {
+    "datatype": "string",
+    "unit": null,
+    "source": "OSM",
+    "description": "OSM id (node/way/...)",
+    "derived": false,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "nearest_facility_name": {
+    "datatype": "string",
+    "unit": null,
+    "source": "OSM",
+    "description": "OSM name tag",
+    "derived": false,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "facility_count_500m": {
+    "datatype": "int",
+    "unit": "count",
+    "source": "OSM",
+    "description": "Facilities within 500m",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "0"
+  },
+  "facility_count_1km": {
+    "datatype": "int",
+    "unit": "count",
+    "source": "OSM",
+    "description": "Facilities within 1km",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "0"
+  },
+  "industrial_facility_count_500m": {
+    "datatype": "int",
+    "unit": "count",
+    "source": "OSM",
+    "description": "Industrial facilities within 500m",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "0"
+  },
+  "industrial_facility_count_1km": {
+    "datatype": "int",
+    "unit": "count",
+    "source": "OSM",
+    "description": "Industrial within 1km",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "0"
+  },
+  "power_facility_count_1km": {
+    "datatype": "int",
+    "unit": "count",
+    "source": "OSM",
+    "description": "Power plants within 1km",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "0"
+  },
+  "oil_gas_facility_count_1km": {
+    "datatype": "int",
+    "unit": "count",
+    "source": "OSM",
+    "description": "Oil/gas within 1km",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "0"
+  },
+  "nearest_powerplant_distance_m": {
+    "datatype": "float",
+    "unit": "meters",
+    "source": "OSM",
+    "description": "Nearest power_plant",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None if no power_plant"
+  },
+  "nearest_refinery_distance_m": {
+    "datatype": "float",
+    "unit": "meters",
+    "source": "OSM",
+    "description": "Nearest refinery",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "nearest_oil_gas_distance_m": {
+    "datatype": "float",
+    "unit": "meters",
+    "source": "OSM",
+    "description": "Nearest oil_gas",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "nearest_steel_facility_distance_m": {
+    "datatype": "float",
+    "unit": "meters",
+    "source": "OSM",
+    "description": "Nearest steel",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "nearest_cement_facility_distance_m": {
+    "datatype": "float",
+    "unit": "meters",
+    "source": "OSM",
+    "description": "Nearest cement",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "landcover_class": {
+    "datatype": "string",
+    "unit": null,
+    "source": "Land-cover",
+    "description": "forest/agriculture/industrial/water/bare/other/unknown",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "unknown"
+  },
+  "forest_fraction": {
+    "datatype": "float",
+    "unit": "0-1",
+    "source": "Land-cover",
+    "description": "Forest fraction within radius (if raster)",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None (no raster)"
+  },
+  "agriculture_fraction": {
+    "datatype": "float",
+    "unit": "0-1",
+    "source": "Land-cover",
+    "description": "Agriculture fraction",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "industrial_fraction": {
+    "datatype": "float",
+    "unit": "0-1",
+    "source": "Land-cover",
+    "description": "Industrial fraction",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "builtup_fraction": {
+    "datatype": "float",
+    "unit": "0-1",
+    "source": "Land-cover",
+    "description": "Built-up fraction",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "water_fraction": {
+    "datatype": "float",
+    "unit": "0-1",
+    "source": "Land-cover",
+    "description": "Water fraction",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "bare_fraction": {
+    "datatype": "float",
+    "unit": "0-1",
+    "source": "Land-cover",
+    "description": "Bare fraction",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "None"
+  },
+  "hour_utc": {
+    "datatype": "int",
+    "unit": "0-23",
+    "source": "FIRMS",
+    "description": "Hour UTC derived from timestamp",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "never"
+  },
+  "day_of_week": {
+    "datatype": "int",
+    "unit": "0-6",
+    "source": "FIRMS",
+    "description": "0=Monday",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "never"
+  },
+  "month": {
+    "datatype": "int",
+    "unit": "1-12",
+    "source": "FIRMS",
+    "description": "Month",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "never"
+  },
+  "daynight": {
+    "datatype": "string",
+    "unit": "D/N",
+    "source": "FIRMS raw",
+    "description": "Recovered from raw FIRMS daynight via deterministic ID; fallback hour approx",
+    "derived": true,
+    "leakage_sensitive": false,
+    "missing": "D/N fallback"
+  }
+}
