@@ -1,0 +1,80 @@
+[
+  {
+    "event_id": "FIRMS_001",
+    "classification": "industrial_fire",
+    "confidence": 0.942,
+    "risk_score": 87,
+    "risk_level": "critical",
+    "explanation": [
+      "High Fire Radiative Power (184.5 MW)",
+      "Immediate proximity to Petrochemical facility boundary (76.4m)",
+      "Persistent thermal activity (+566% surge above 24h baseline)",
+      "Low vegetation context (NDVI 0.12, NDBI 0.68)"
+    ]
+  },
+  {
+    "event_id": "FIRMS_002",
+    "classification": "wildfire",
+    "confidence": 0.895,
+    "risk_score": 62,
+    "risk_level": "high",
+    "explanation": [
+      "High vegetation index context (NDVI 0.74)",
+      "No industrial infrastructure within 6.2km radius",
+      "Spatial dispersion pattern across forest canopy",
+      "Moderate FRP signature (95.0 MW)"
+    ]
+  },
+  {
+    "event_id": "FIRMS_003",
+    "classification": "persistent_industrial_source",
+    "confidence": 0.965,
+    "risk_score": 35,
+    "risk_level": "moderate",
+    "explanation": [
+      "Stable historical FRP baseline matching refinery flare operations",
+      "High temporal persistence score (0.92)",
+      "Direct spatial overlap with registered refinery unit",
+      "Regular day/night detection cycle"
+    ]
+  },
+  {
+    "event_id": "FIRMS_004",
+    "classification": "industrial_fire",
+    "confidence": 0.918,
+    "risk_score": 92,
+    "risk_level": "critical",
+    "explanation": [
+      "Abnormal detection spike (14 events in 24h vs normal 2)",
+      "Extremely high thermal intensity (FRP 210.0 MW, Temp 430 K)",
+      "Inside steel manufacturing plant perimeter",
+      "Critical industrial hazard threat level"
+    ]
+  },
+  {
+    "event_id": "FIRMS_005",
+    "classification": "agricultural_fire",
+    "confidence": 0.880,
+    "risk_score": 25,
+    "risk_level": "low",
+    "explanation": [
+      "Agricultural cropland land-cover classification",
+      "Seasonal crop residue burning temporal window",
+      "No industrial infrastructure within 12.5km",
+      "Low thermal radiative power (45.0 MW)"
+    ]
+  },
+  {
+    "event_id": "FIRMS_006",
+    "classification": "gas_flare",
+    "confidence": 0.950,
+    "risk_score": 40,
+    "risk_level": "moderate",
+    "explanation": [
+      "Known industrial power & chemical complex stack signature",
+      "Consistent high brightness temperature (380.0 K)",
+      "Static spatial footprint",
+      "High built-up index (NDBI 0.65)"
+    ]
+  }
+]

@@ -1,30 +1,25 @@
-# Env and secrets
-.env
-.env.local
-*.env
-
-# Python
-__pycache__/
-*.py[cod]
-*.egg-info/
-.pytest_cache/
+# Virtual environment
 .venv/
 venv/
-*.pyc
+ENV/
+env/
 
-# Data - raw NASA downloads (never commit large NASA dumps)
-data/firms/raw/
-data/firms/raw_combined.csv
-# Keep small processed datasets, reports, VEDAS outputs — do not ignore entire processed
-# data/firms/processed/  # intentionally not ignored — keep small CSV/JSON reports (firms_india.csv 0.5MB, firms_enriched_vedas.csv 0.8MB, reports <100KB)
-data/geospatial/cache/
-*.osm.pbf
-# Keep demo/small data under data/demo if needed — not ignored
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
 
-# OS
+# Databases
+*.db
+*.sqlite3
+backend/thermos.db
+
+# OS / IDE
 .DS_Store
-Thumbs.db
-
-# IDE
 .vscode/
 .idea/
+*.log
+
+# Temp working directories
+temp_repo/

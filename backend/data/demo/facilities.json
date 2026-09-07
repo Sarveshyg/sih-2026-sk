@@ -1,0 +1,42 @@
+[
+  {
+    "id": "FAC_001",
+    "name": "Dahej Petrochemical Complex",
+    "type": "petrochemical",
+    "latitude": 21.705,
+    "longitude": 72.585,
+    "geometry": "{\"type\":\"Polygon\",\"coordinates\":[[[72.580,21.700],[72.590,21.700],[72.590,21.710],[72.580,21.710],[72.580,21.700]]]}"
+  },
+  {
+    "id": "FAC_002",
+    "name": "Jamnagar Refinery & Petrochemical Complex",
+    "type": "refinery",
+    "latitude": 22.352,
+    "longitude": 71.320,
+    "geometry": "{\"type\":\"Polygon\",\"coordinates\":[[[71.310,22.345],[71.330,22.345],[71.330,22.360],[71.310,22.360],[71.310,22.345]]]}"
+  },
+  {
+    "id": "FAC_003",
+    "name": "Hazira Steel & Heavy Industrial Plant",
+    "type": "steel_plant",
+    "latitude": 21.115,
+    "longitude": 72.642,
+    "geometry": "{\"type\":\"Polygon\",\"coordinates\":[[[72.635,21.110],[72.650,21.110],[72.650,21.120],[72.635,21.120],[72.635,21.110]]]}"
+  },
+  {
+    "id": "FAC_004",
+    "name": "Trombay Power Station & Chemical Complex",
+    "type": "power_plant",
+    "latitude": 19.012,
+    "longitude": 72.898,
+    "geometry": "{\"type\":\"Polygon\",\"coordinates\":[[[72.890,19.005],[72.905,19.005],[72.905,19.018],[72.890,19.018],[72.890,19.005]]]}"
+  },
+  {
+    "id": "FAC_005",
+    "name": "Angul Aluminium & Power Facility",
+    "type": "industrial_area",
+    "latitude": 20.840,
+    "longitude": 85.150,
+    "geometry": "{\"type\":\"Polygon\",\"coordinates\":[[[85.140,20.830],[85.160,20.830],[85.160,20.850],[85.140,20.850],[85.140,20.830]]]}"
+  }
+]
