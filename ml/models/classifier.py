@@ -21,6 +21,12 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Tuple, Dict
 
+import os
+import pathlib
+import numpy as np
+import pandas as pd
+import joblib
+
 from ml.features.engineering import FeatureVector
 from ml.schemas import ClassificationLabel
 from ml import config as cfg
@@ -38,6 +44,104 @@ class BaseClassifier(ABC):
     @property
     def model_name(self) -> str:
         return self.__class__.__name__
+
+
+class TrainedJoblibClassifier(BaseClassifier):
+    """
+    ML Classifier using trained XGBoost Pipeline joblib model ('fused_geospatial_model.joblib').
+    Extracts 24 radiometric and spatial feature columns from FeatureVector and outputs predictions.
+    """
+
+    def __init__(self, model_path: str | pathlib.Path | None = None):
+        if model_path is None:
+            base_dir = pathlib.Path(__file__).resolve().parents[2]
+            model_path = base_dir / "Trained Model" / "artifacts_output" / "fused_geospatial_model.joblib"
+        self._model_path = str(model_path)
+        self._model = None
+        if os.path.exists(self._model_path):
+            try:
+                self._model = joblib.load(self._model_path)
+            except Exception as e:
+                print(f"[TrainedJoblibClassifier] Warning: Failed to load model from {self._model_path}: {e}")
+
+    @property
+    def model_name(self) -> str:
+        return "fused-xgboost-v1" if self._model is not None else "baseline-fallback"
+
+    def predict(self, fv: FeatureVector) -> Tuple[str, float]:
+        if self._model is None:
+            return BaselineClassifier().predict(fv)
+
+        dist_km = (fv.distance_to_facility_m / 1000.0) if fv.distance_to_facility_m is not None else 999.0
+        dist_flare_km = dist_km if fv.is_flare_facility else 999.0
+        dist_plant_km = dist_km if fv.is_industrial_facility else 999.0
+        dist_mine_km = 999.0
+
+        frp = float(fv.frp)
+        bt = float(fv.brightness_temperature)
+        bright_ti4 = bt
+        bright_ti5 = max(270.0, bt - (15.0 if fv.is_industrial_facility or fv.is_flare_facility else 5.0))
+        temp_diff = bright_ti4 - bright_ti5
+
+        row = {
+            "bright_ti4": bright_ti4,
+            "bright_ti5": bright_ti5,
+            "temp_diff_ti4_ti5": temp_diff,
+            "frp": frp,
+            "log_frp": float(np.log1p(frp)),
+            "scan": 0.4,
+            "track": 0.4,
+            "confidence_numeric": float(fv.firms_confidence),
+            "acq_hour": 12.0,
+            "is_night": 0.0,
+            "distance_to_plant_km": dist_plant_km,
+            "log_distance_to_plant": float(np.log1p(dist_plant_km)),
+            "distance_to_flare_km": dist_flare_km,
+            "log_distance_to_flare": float(np.log1p(dist_flare_km)),
+            "distance_to_coal_mine_km": dist_mine_km,
+            "log_distance_to_coal_mine": float(np.log1p(dist_mine_km)),
+            "min_distance_to_industrial_km": dist_km,
+            "log_min_industrial_distance": float(np.log1p(dist_km)),
+            "nearest_plant_capacity_mw": 100.0 if fv.is_industrial_facility else 0.0,
+            "nearest_flare_mean_vol": 5.0 if fv.is_flare_facility else 0.0,
+            "nearest_flare_active_years": 5.0 if fv.is_flare_facility else 0.0,
+            "nearest_plant_fuel": fv.facility_type or "Unknown",
+            "nearest_flare_level": "High" if fv.is_flare_facility else "Unknown",
+            "nearest_mine_type": "Unknown",
+        }
+
+        df = pd.DataFrame([row])
+        try:
+            probs = self._model.predict_proba(df)[0]
+            prob_ind = float(probs[1]) if len(probs) > 1 else float(probs[0])
+        except Exception:
+            return BaselineClassifier().predict(fv)
+
+        if prob_ind >= 0.5:
+            if fv.is_flare_facility:
+                label = ClassificationLabel.gas_flare.value
+            elif fv.persistence_score is not None and fv.persistence_score >= cfg.PERSISTENCE_HIGH:
+                label = CANONICAL_PERSISTENT
+            elif fv.activity_anomaly is not None and fv.activity_anomaly > 1.0:
+                label = ClassificationLabel.industrial_fire.value
+            elif dist_km <= 2.0:
+                label = ClassificationLabel.industrial_fire.value
+            else:
+                label = CANONICAL_PERSISTENT
+            confidence = min(0.98, max(0.55, prob_ind))
+        else:
+            dist_forest = fv.distance_to_forest_m or 9999.0
+            dist_agri = fv.distance_to_agriculture_m or 9999.0
+            if dist_forest < cfg.FOREST_CLOSE_M or (fv.ndvi is not None and fv.ndvi > cfg.NDVI_VEGETATION):
+                label = ClassificationLabel.wildfire.value
+            elif dist_agri < cfg.AGRI_CLOSE_M:
+                label = ClassificationLabel.agricultural_fire.value
+            else:
+                label = ClassificationLabel.unknown.value
+            confidence = min(0.98, max(0.50, 1.0 - prob_ind))
+
+        return label, round(confidence, 3)
+
 
 
 class BaselineClassifier(BaseClassifier):

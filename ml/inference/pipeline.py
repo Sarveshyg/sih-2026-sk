@@ -18,7 +18,7 @@ from typing import Union, Dict, Any
 
 from ml.schemas import EnrichedEvent, PredictionOutput, ClassificationLabel, RiskLevel
 from ml.features.engineering import FeatureEngineer
-from ml.models.classifier import BaselineClassifier, BaseClassifier
+from ml.models.classifier import BaselineClassifier, BaseClassifier, TrainedJoblibClassifier
 from ml.models.risk import RiskScorer
 from ml.models.anomaly import AnomalyCalculator
 from ml.explainability.explanation import Explainer
@@ -43,7 +43,7 @@ class InferencePipeline:
         explainer: Explainer | None = None,
     ):
         self.engineer = FeatureEngineer()
-        self.classifier = classifier or BaselineClassifier()
+        self.classifier = classifier or TrainedJoblibClassifier()
         self.risk_scorer = risk_scorer or RiskScorer()
         self.explainer = explainer or Explainer()
         self.anomaly_calc = AnomalyCalculator()

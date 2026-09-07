@@ -84,51 +84,51 @@
     "feature_importance": [
       {
         "Feature": "log_min_industrial_distance",
-        "Importance": 0.4984566867351532
+        "Importance": 0.47074127197265625
       },
       {
         "Feature": "min_distance_to_industrial_km",
-        "Importance": 0.3709171712398529
+        "Importance": 0.38847723603248596
       },
       {
         "Feature": "distance_to_flare_km",
-        "Importance": 0.06781108677387238
+        "Importance": 0.06902892887592316
       },
       {
         "Feature": "distance_to_plant_km",
-        "Importance": 0.010266421362757683
-      },
-      {
-        "Feature": "nearest_flare_level_0.90517171475",
-        "Importance": 0.008535205386579037
+        "Importance": 0.014733006246387959
       },
       {
         "Feature": "log_distance_to_coal_mine",
-        "Importance": 0.008409730158746243
+        "Importance": 0.00890391506254673
       },
       {
         "Feature": "distance_to_coal_mine_km",
-        "Importance": 0.008031127043068409
+        "Importance": 0.00872018001973629
       },
       {
-        "Feature": "acq_hour",
-        "Importance": 0.007125787436962128
-      },
-      {
-        "Feature": "log_distance_to_flare",
-        "Importance": 0.00481775077059865
+        "Feature": "nearest_flare_level_0.90517171475",
+        "Importance": 0.008442583493888378
       },
       {
         "Feature": "log_distance_to_plant",
-        "Importance": 0.004018709063529968
+        "Importance": 0.008142183534801006
+      },
+      {
+        "Feature": "acq_hour",
+        "Importance": 0.007330089807510376
+      },
+      {
+        "Feature": "log_distance_to_flare",
+        "Importance": 0.004781066905707121
       },
       {
         "Feature": "nearest_plant_fuel_fossil gas: unknown",
-        "Importance": 0.0026893713511526585
+        "Importance": 0.003406309522688389
       },
       {
         "Feature": "temp_diff_ti4_ti5",
-        "Importance": 0.0020665142219513655
+        "Importance": 0.0019102406222373247
       }
     ]
   }
