@@ -647,3 +647,191 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .routed-alert>div{min-width:0;overflow:hidden}
 .routed-alert>div strong,.routed-alert>div span,.routed-alert>div small{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .routed-alert>em{justify-self:end;white-space:nowrap}
+
+/* =========================================================================
+   GIS MAP CUSTOM CONTROLS & FLOATING PANELS (Matching reference images)
+========================================================================= */
+
+.gis-floating-control {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  font-size: 11.5px;
+  color: #1e293b;
+  width: 260px;
+}
+.theme-dark .gis-floating-control {
+  background: rgba(15, 23, 42, 0.94);
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+.gis-control-section {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.theme-dark .gis-control-section {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+
+.gis-control-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 5px 0;
+  cursor: pointer;
+  font-size: 11.5px;
+}
+.gis-control-option input {
+  accent-color: #0284c7;
+  cursor: pointer;
+}
+
+.gis-floating-legend {
+  position: absolute;
+  bottom: 24px;
+  left: 12px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+  width: 270px;
+}
+.theme-dark .gis-floating-legend {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+.gis-legend-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+.theme-dark .gis-legend-title {
+  color: #f8fafc;
+}
+
+.gis-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  margin: 6px 0;
+  color: #334155;
+}
+.theme-dark .gis-legend-row {
+  color: #cbd5e1;
+}
+
+.gis-legend-icon {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.gis-legend-icon.red { background: #ef4444; }
+.gis-legend-icon.orange { background: #f97316; }
+.gis-legend-icon.green { background: #22c55e; }
+.gis-legend-icon.blue { background: #3b82f6; }
+
+.gis-legend-stats {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 11px;
+}
+.theme-dark .gis-legend-stats {
+  border-top-color: #334155;
+}
+.gis-legend-stats div {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+  color: #475569;
+}
+.theme-dark .gis-legend-stats div {
+  color: #94a3b8;
+}
+
+.gis-custom-popup .leaflet-popup-content-wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+.theme-dark .gis-custom-popup .leaflet-popup-content-wrapper {
+  background: #0f172a;
+  border-color: #334155;
+  color: #f8fafc;
+}
+.gis-custom-popup .leaflet-popup-content {
+  margin: 0;
+  padding: 16px;
+  line-height: 1.5;
+  width: 320px !important;
+}
+.gis-popup-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.gis-popup-header.red { color: #dc2626; }
+.gis-popup-header.orange { color: #ea580c; }
+.gis-popup-header.green { color: #16a34a; }
+
+.gis-popup-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+.theme-dark .gis-popup-title {
+  color: #f8fafc;
+}
+
+.gis-popup-field {
+  font-size: 11.5px;
+  color: #475569;
+  margin: 4px 0;
+}
+.theme-dark .gis-popup-field {
+  color: #94a3b8;
+}
+.gis-popup-field strong {
+  color: #0f172a;
+}
+.theme-dark .gis-popup-field strong {
+  color: #f1f5f9;
+}
+.gis-popup-section {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #e2e8f0;
+}
+.theme-dark .gis-popup-section {
+  border-top-color: #334155;
+}
+
