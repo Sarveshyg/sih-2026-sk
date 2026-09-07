@@ -566,12 +566,13 @@ function App() {
                 <div className="map-frame">
                   <ThermalMap
                     center={workspaceCoordinates[workspace] ?? workspaceCoordinates['Western India']}
-                    events={events}
+                    events={activeEvents}
                     selectedId={selectedId}
                     onSelect={setSelectedId}
                   />
                 </div>
               </div>
+
 
               {!isMapMaximized && (
                 <aside className="card events-card">
@@ -693,7 +694,7 @@ function App() {
           </div>
         ) : activeNav === 'Simulation' ? (
           <SimulationPage
-            events={events}
+            events={activeEvents}
             active={simulationActive}
             speed={simulationSpeed}
             tick={simulationTick}
@@ -713,8 +714,10 @@ function App() {
             onReview={setReviewStatus}
             onToggleTheme={toggleTheme}
             onReturn={() => setActiveNav('Dashboard')}
+            events={activeEvents}
           />
         )}
+
       </main>
     </div>
   )
@@ -1161,7 +1164,7 @@ const ThermalMap = memo(function ThermalMap({
 
 
 function WorkspacePage({
-  page, theme, reviewStatus, onReview, onToggleTheme, onReturn, alerts, user,
+  page, theme, reviewStatus, onReview, onToggleTheme, onReturn, alerts, user, events: pageEvents,
 }: {
   page: string
   theme: 'dark' | 'light'
@@ -1171,11 +1174,13 @@ function WorkspacePage({
   onReview: (status: 'pending' | 'resolved' | 'escalated') => void
   onToggleTheme: () => void
   onReturn: () => void
+  events?: EventRecord[]
 }) {
+  const activeList = pageEvents || events
   const [selectedFacilityIndex, setSelectedFacilityIndex] = useState(0)
-  const [selectedId, setSelectedId] = useState(events[0].id)
+  const [selectedId, setSelectedId] = useState(activeList[0]?.id || 'FIRMS_0001')
   const [baseLayer, setBaseLayer] = useState<'street' | 'satellite'>('street')
-  const selected = events.find((e) => e.id === selectedId) ?? events[0]
+  const selected = activeList.find((e) => e.id === selectedId) ?? activeList[0]
   const selectedFacility = facilityIntel[selectedFacilityIndex]
   if (page === 'Alert center') return <AlertCenter reviewStatus={reviewStatus} onReview={onReview} alerts={alerts} user={user} />
 
@@ -1218,10 +1223,11 @@ function WorkspacePage({
             </div>
           </div>
           <div className="card map-card map-card--tall">
-            <ThermalMap center={workspaceCoordinates['Western India']} events={events} selectedId={selected.id} onSelect={() => undefined} baseLayer={baseLayer} />
+            <ThermalMap center={workspaceCoordinates['Western India']} events={activeList} selectedId={selected.id} onSelect={() => undefined} baseLayer={baseLayer} />
           </div>
         </div>
       )}
+
 
       {page === 'Event detail' && (
         <div className="grid grid--detail">

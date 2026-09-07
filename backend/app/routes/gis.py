@@ -13,7 +13,9 @@ def get_master_df() -> pd.DataFrame:
     global _master_df
     if _master_df is None:
         base_dir = pathlib.Path(__file__).resolve().parents[3]
-        csv_path = base_dir / "Trained Model" / "artifacts_output" / "firms_predicted_master.csv"
+        csv_path = base_dir / "Trained Model" / "artifacts_output" / "firms_predicted_master_updated.csv"
+        if not csv_path.exists():
+            csv_path = base_dir / "Trained Model" / "artifacts_output" / "firms_predicted_master.csv"
         if not csv_path.exists():
             csv_path = base_dir / "Trained Model" / "firms_industrial_dataset_enriched.csv"
 
@@ -25,6 +27,7 @@ def get_master_df() -> pd.DataFrame:
         else:
             _master_df = pd.DataFrame()
     return _master_df
+
 
 
 @router.get(
