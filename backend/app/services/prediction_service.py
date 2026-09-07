@@ -1,9 +1,24 @@
 import json
+import os
+import sys
 from typing import Optional, List
 from sqlalchemy.orm import Session
+
 from app.models.thermal_event import ThermalEvent
 from app.models.prediction import Prediction
 from app.schemas.prediction import PredictionResponse
+
+# Ensure root workspace is on python path for importing `ml`
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+
+try:
+    from ml.predict import predict as ml_predict
+    HAS_ML_MODULE = True
+except Exception as e:
+    print(f"[THERMOS] ML pipeline import warning: {e}")
+    HAS_ML_MODULE = False
 
 
 class PredictionService:
@@ -24,17 +39,59 @@ class PredictionService:
                 classification=existing.classification,
                 confidence=existing.confidence,
                 risk_score=existing.risk_score,
-                risk_level=existing.risk_level,
+                risk_level=existing.risk_level.lower(),
                 explanation=explanation_list,
             )
 
-        # Check if thermal event exists to generate deterministic prediction
+        # Check if thermal event exists to generate prediction
         event = db.query(ThermalEvent).filter(ThermalEvent.id == event_id).first()
         if not event:
             return None
 
-        # Deterministic ML inference rules based on event features
-        classification, confidence, risk_score, risk_level, explanation = PredictionService._run_inference_rules(event)
+        # Build dictionary for prediction
+        event_dict = {
+            "id": event.id,
+            "latitude": event.latitude,
+            "longitude": event.longitude,
+            "frp": event.frp,
+            "brightness_temperature": event.brightness_temperature,
+            "confidence": event.confidence,
+            "timestamp": event.timestamp,
+            "satellite": event.satellite,
+            "nearest_facility_id": event.facility_id,
+            "nearest_facility_name": event.nearest_facility_name,
+            "facility_type": event.facility_type,
+            "distance_to_facility_m": event.distance_to_facility_m,
+            "persistence_score": event.persistence_score,
+            "detections_24h": event.detections_24h,
+            "detections_7d": event.detections_7d,
+            "ndvi": event.ndvi,
+            "ndbi": event.ndbi,
+        }
+
+        classification = "unknown"
+        confidence = 0.5
+        risk_score = 20.0
+        risk_level = "low"
+        explanation = []
+
+        if HAS_ML_MODULE:
+            try:
+                ml_res = ml_predict(event_dict)
+                classification = ml_res.get("classification", "unknown")
+                confidence = float(ml_res.get("confidence", 0.5))
+                risk_score = float(ml_res.get("risk_score", 20.0))
+                risk_level = str(ml_res.get("risk_level", "low")).lower()
+                explanation = ml_res.get("explanation", [])
+            except Exception as ml_err:
+                print(f"[THERMOS] ML inference fallback triggered: {ml_err}")
+                classification, confidence, risk_score, risk_level, explanation = (
+                    PredictionService._run_inference_rules(event)
+                )
+        else:
+            classification, confidence, risk_score, risk_level, explanation = (
+                PredictionService._run_inference_rules(event)
+            )
 
         # Store prediction in DB for future lookup
         new_prediction = Prediction(
@@ -42,7 +99,7 @@ class PredictionService:
             classification=classification,
             confidence=confidence,
             risk_score=risk_score,
-            risk_level=risk_level,
+            risk_level=risk_level.lower(),
             explanation=json.dumps(explanation),
         )
         db.add(new_prediction)
@@ -53,7 +110,7 @@ class PredictionService:
             classification=classification,
             confidence=confidence,
             risk_score=risk_score,
-            risk_level=risk_level,
+            risk_level=risk_level.lower(),
             explanation=explanation,
         )
 
@@ -61,12 +118,10 @@ class PredictionService:
     def _run_inference_rules(event: ThermalEvent):
         """
         Deterministic ML fallback inference function.
-        Can be seamlessly connected to ML team's model: predict(event)
         """
         dist = event.distance_to_facility_m if event.distance_to_facility_m is not None else 10000.0
         frp = event.frp
         ndvi = event.ndvi if event.ndvi is not None else 0.5
-        detections_24h = event.detections_24h or 1
         persistence = event.persistence_score or 0.0
 
         explanation: List[str] = []

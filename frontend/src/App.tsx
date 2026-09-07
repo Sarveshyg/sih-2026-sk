@@ -187,6 +187,70 @@ function App() {
   const [simulationIncidents, setSimulationIncidents] = useState<SimulationIncident[]>([])
   const [alerts, setAlerts] = useState<AlertRecord[]>([])
 
+  const [activeEvents, setActiveEvents] = useState<EventRecord[]>(events)
+  const [analyticsData, setAnalyticsData] = useState<{
+    total_events: number
+    industrial_events: number
+    critical_events: number
+    persistent_sources: number
+  }>({ total_events: 247, industrial_events: 32, critical_events: 8, persistent_sources: 14 })
+
+  const mapBackendClassificationToFireType = (label?: string): FireType => {
+    switch (label?.toLowerCase()) {
+      case 'industrial_fire': return 'Industrial Fire'
+      case 'persistent_industrial_source': return 'Persistent Industrial Thermal Source'
+      case 'gas_flare': return 'Gas Flare'
+      case 'wildfire': return 'Wildfire/Natural Fire'
+      case 'agricultural_fire': return 'Agricultural Fire'
+      default: return 'Unknown'
+    }
+  }
+
+  const fetchBackendData = async () => {
+    try {
+      const [eventsRes, analyticsRes] = await Promise.all([
+        fetch('http://localhost:8000/api/events').catch(() => null),
+        fetch('http://localhost:8000/api/analytics').catch(() => null),
+      ])
+
+      if (eventsRes && eventsRes.ok) {
+        const data = await eventsRes.json()
+        if (Array.isArray(data) && data.length > 0) {
+          const mapped: EventRecord[] = data.map((item: any) => ({
+            id: item.id,
+            location: item.facility_name ? `${item.facility_name}` : `Lat ${item.latitude.toFixed(2)}, Lon ${item.longitude.toFixed(2)}`,
+            facility: item.facility_name || 'Industrial Facility',
+            type: item.facility_type || 'Industrial site',
+            classification: item.classification || 'Thermal anomaly',
+            fireType: mapBackendClassificationToFireType(item.classification),
+            timestamp: item.timestamp ? (item.timestamp.includes('T') ? item.timestamp.split('T')[1].slice(0, 5) + ' UTC' : item.timestamp) : '10:30 UTC',
+            frp: item.frp || 50.0,
+            temperature: item.brightness_temperature || 320.0,
+            confidence: Math.round((item.confidence || 0.85) * (item.confidence <= 1 ? 100 : 1)),
+            risk: Math.round(item.risk_score || 50),
+            riskLevel: (item.risk_level?.toLowerCase() as RiskLevel) || 'moderate',
+            persistence: 84,
+            detections: 12,
+            latitude: item.latitude,
+            longitude: item.longitude,
+          }))
+          setActiveEvents(mapped)
+        }
+      }
+
+      if (analyticsRes && analyticsRes.ok) {
+        const stats = await analyticsRes.json()
+        setAnalyticsData(stats)
+      }
+    } catch {
+      // Retain demo fallback
+    }
+  }
+
+  useEffect(() => {
+    fetchBackendData()
+  }, [])
+
   useEffect(() => {
     if (!simulationActive) return
     const interval = window.setInterval(() => setSimulationTick((tick) => tick + 1), Math.max(350, 1400 / simulationSpeed))
@@ -241,13 +305,13 @@ function App() {
   }
 
 
-  const selectedEvent = events.find((event) => event.id === selectedId) ?? events[0]
+  const selectedEvent = activeEvents.find((event) => event.id === selectedId) ?? activeEvents[0]
   const filteredEvents = useMemo(
-    () => events.filter((event) =>
+    () => activeEvents.filter((event) =>
       `${event.id} ${event.location} ${event.facility}`.toLowerCase().includes(query.toLowerCase())
       && (riskFilter === 'all' || event.riskLevel === riskFilter),
     ),
-    [query, riskFilter],
+    [activeEvents, query, riskFilter],
   )
   const priorityEvents = filteredEvents.slice(0, 5)
   const visibleAlerts = alerts.filter((alert) => alertRecipients(user, alert.region))
@@ -255,8 +319,11 @@ function App() {
 
   const refresh = () => {
     setIsRefreshing(true)
-    window.setTimeout(() => setIsRefreshing(false), 900)
+    fetchBackendData().finally(() => {
+      window.setTimeout(() => setIsRefreshing(false), 900)
+    })
   }
+
 
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark'
@@ -430,11 +497,12 @@ function App() {
             </div>
 
             <section className="kpis" aria-label="Platform metrics">
-              <Kpi icon={<Flame size={16} />} tone="critical" label="Thermal events" value="247" trend="+12.4%" note="vs. last 7 days" />
-              <Kpi icon={<AlertTriangle size={16} />} tone="high" label="Critical alerts" value="08" trend="+3" note="since yesterday" down />
-              <Kpi icon={<Zap size={16} />} tone="moderate" label="Industrial events" value="32" trend="+8.1%" note="vs. last 7 days" />
-              <Kpi icon={<Activity size={16} />} tone="low" label="Persistent sources" value="14" trend="Stable" note="vs. last 7 days" neutral />
+              <Kpi icon={<Flame size={16} />} tone="critical" label="Thermal events" value={String(analyticsData.total_events)} trend="+12.4%" note="vs. last 7 days" />
+              <Kpi icon={<AlertTriangle size={16} />} tone="high" label="Critical alerts" value={String(analyticsData.critical_events).padStart(2, '0')} trend="+3" note="since yesterday" down />
+              <Kpi icon={<Zap size={16} />} tone="moderate" label="Industrial events" value={String(analyticsData.industrial_events)} trend="+8.1%" note="vs. last 7 days" />
+              <Kpi icon={<Activity size={16} />} tone="low" label="Persistent sources" value={String(analyticsData.persistent_sources)} trend="Stable" note="vs. last 7 days" neutral />
             </section>
+
 
             <section className={`workspace-grid ${isMapMaximized ? 'is-maximized' : ''}`}>
               <div className="card map-card">
