@@ -652,23 +652,49 @@ button:focus-visible, input:focus-visible, a:focus-visible {
    GIS MAP CUSTOM CONTROLS & FLOATING PANELS (Matching reference images)
 ========================================================================= */
 
-.gis-floating-control {
+.gis-layers-toggle-btn {
   position: absolute;
   top: 12px;
   right: 12px;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(10px);
+  background: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 7px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.gis-layers-toggle-btn:hover {
+  background: var(--surface-alt);
+  border-color: var(--accent);
+}
+
+.gis-floating-control {
+  position: absolute;
+  top: 48px;
+  right: 12px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
   border: 1px solid #cbd5e1;
   border-radius: 10px;
   padding: 12px 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
   font-size: 11.5px;
   color: #1e293b;
   width: 260px;
+  max-height: 340px;
+  overflow-y: auto;
 }
 .theme-dark .gis-floating-control {
-  background: rgba(15, 23, 42, 0.94);
+  background: rgba(15, 23, 42, 0.96);
   border-color: #334155;
   color: #f1f5f9;
 }
@@ -833,5 +859,220 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 }
 .theme-dark .gis-popup-section {
   border-top-color: #334155;
+}
+
+/* --- FIRMS DATA INGESTION STATUS BANNER --- */
+.firms-data-status-card {
+  margin-bottom: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.firms-status-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.firms-badges-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.firms-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.firms-badge--live {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+.theme-dark .firms-badge--live {
+  background: rgba(22, 163, 74, 0.2);
+  color: #4ade80;
+  border-color: #16a34a;
+}
+.firms-badge--historical {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+.theme-dark .firms-badge--historical {
+  background: rgba(217, 119, 6, 0.2);
+  color: #fbbf24;
+  border-color: #b45309;
+}
+.firms-badge--satellite {
+  background: #e0e7ff;
+  color: #4338ca;
+  border: 1px solid #c7d2fe;
+}
+.theme-dark .firms-badge--satellite {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  border-color: #6366f1;
+}
+
+.firms-status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.firms-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+.firms-metric-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+.firms-metric-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* --- 7-STAGE PIPELINE MONITOR --- */
+.pipeline-monitor-card {
+  margin-bottom: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+}
+.pipeline-flow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 0;
+}
+.pipeline-stage-box {
+  flex: 1;
+  min-width: 120px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+.pipeline-stage-box:hover {
+  border-color: var(--accent);
+}
+.pipeline-stage-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.pipeline-stage-count {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 2px 0;
+}
+.pipeline-stage-unit {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+.pipeline-arrow {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* --- TIER AUTHORITY SELECTOR BAR --- */
+.tier-authority-selector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px;
+}
+.tier-authority-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tier-authority-btn:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+.tier-authority-btn.is-active {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--accent);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.tier-authority-pill {
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* --- ML PROVENANCE & LATENCY CARD --- */
+.ml-provenance-box {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 14px;
+}
+.ml-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.ml-features-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  margin-top: 8px;
+}
+.ml-features-table th, .ml-features-table td {
+  padding: 4px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.ml-features-table th {
+  color: var(--text-muted);
+  font-weight: 600;
 }
 

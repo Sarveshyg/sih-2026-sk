@@ -32,12 +32,13 @@ def get_master_df() -> pd.DataFrame:
 
 @router.get(
     "/master-detections",
-    summary="Get 5,144 Master Monitored Hotspots",
-    description="Retrieve full dataset of 5,144 enriched thermal anomaly detections for frontend GIS map visualization.",
+    summary="Get Monitored Thermal Hotspots (India Focus)",
+    description="Retrieve enriched thermal anomaly detections filtered for India region (or global if india_only=false).",
 )
 def get_master_detections(
     limit: int = Query(5144, ge=1, le=10000, description="Max number of detections to return"),
     category: Optional[str] = Query(None, description="Filter by category"),
+    india_only: bool = Query(True, description="Filter strictly for India territory boundaries"),
 ) -> Dict[str, Any]:
     df = get_master_df()
     if df.empty:
@@ -52,29 +53,37 @@ def get_master_detections(
         }
 
     filtered_df = df
-    if category:
-        filtered_df = df[
-            df["detailed_predicted_class"].astype(str).str.contains(category, case=False, na=False) |
-            df["weak_supervision_label"].astype(str).str.contains(category, case=False, na=False)
+    if india_only:
+        filtered_df = filtered_df[
+            (filtered_df["latitude"] >= 6.0) &
+            (filtered_df["latitude"] <= 37.5) &
+            (filtered_df["longitude"] >= 68.0) &
+            (filtered_df["longitude"] <= 97.5)
         ]
 
+    if category:
+        filtered_df = filtered_df[
+            filtered_df["detailed_predicted_class"].astype(str).str.contains(category, case=False, na=False) |
+            filtered_df["weak_supervision_label"].astype(str).str.contains(category, case=False, na=False)
+        ]
+
+    total_monitored = len(filtered_df)
     sliced_df = filtered_df.head(limit)
     # Sanitise NaNs in sliced_df
     sliced_df = sliced_df.fillna(value="")
     records = sliced_df.to_dict(orient="records")
 
-    total_monitored = len(df)
     industrial_count = int(
-        (df["detailed_predicted_class"].astype(str).str.contains("Industrial|Coal|Flare", case=False, na=False)).sum()
-    ) if "detailed_predicted_class" in df.columns else 1639
+        (filtered_df["detailed_predicted_class"].astype(str).str.contains("Industrial|Coal|Flare", case=False, na=False)).sum()
+    ) if "detailed_predicted_class" in filtered_df.columns else 455
 
     wildfire_count = int(
-        (df["detailed_predicted_class"].astype(str).str.contains("Wildfire|Forest", case=False, na=False)).sum()
-    ) if "detailed_predicted_class" in df.columns else 3505
+        (filtered_df["detailed_predicted_class"].astype(str).str.contains("Wildfire|Forest", case=False, na=False)).sum()
+    ) if "detailed_predicted_class" in filtered_df.columns else 2145
 
     normal_count = int(
-        (df["detailed_predicted_class"].astype(str).str.contains("Normal|Background", case=False, na=False)).sum()
-    ) if "detailed_predicted_class" in df.columns else 0
+        (filtered_df["detailed_predicted_class"].astype(str).str.contains("Normal|Background", case=False, na=False)).sum()
+    ) if "detailed_predicted_class" in filtered_df.columns else 0
 
     return {
         "total": total_monitored,

@@ -1,69 +1,50 @@
 import os
-import time
-import requests
-from typing import Dict, Any, List
-from fastapi import APIRouter, Query
-from app.routes.gis import get_master_df
+from typing import Dict, Any, List, Optional
+from fastapi import APIRouter, Query, Body
+from app.services.firms_service import FirmsService
 
-router = APIRouter(prefix="/api/firms", tags=["NASA FIRMS Realtime Feed"])
-
-_cached_live_data: Dict[str, Any] = {"timestamp": 0, "data": []}
-CACHE_TTL = 300  # 5 minutes
+router = APIRouter(prefix="/api/firms", tags=["NASA FIRMS Realtime Feed & Pipeline"])
 
 
-@router.get(
-    "/live",
-    summary="Get NASA FIRMS Active Thermal Anomaly Feed",
-    description="Fetch live thermal hotspot detections from NASA FIRMS VIIRS/MODIS satellites or cached 7-day fallback.",
-)
+@router.get("/status", summary="Get NASA FIRMS Ingestion & Pipeline Status")
+def get_status() -> Dict[str, Any]:
+    return FirmsService.get_status()
+
+
+@router.get("/pipeline-monitor", summary="Get 7-Stage FIRMS Pipeline Monitor Counts")
+def get_pipeline_monitor() -> Dict[str, Any]:
+    return FirmsService.get_pipeline_monitor()
+
+
+@router.post("/refresh", summary="Trigger NASA FIRMS Area API Fetch & ML Ingestion")
+def refresh_firms(
+    map_key: Optional[str] = Body(None, embed=True, description="Optional FIRMS MAP_KEY"),
+    force: bool = Body(True, embed=True, description="Force refresh ignoring TTL"),
+) -> Dict[str, Any]:
+    return FirmsService.refresh_data(force=force, map_key=map_key)
+
+
+@router.get("/detections", summary="Get Monitored Detections from FIRMS")
+def get_detections(
+    limit: int = Query(2600, ge=1, le=10000),
+    priority_only: bool = Query(False),
+) -> Dict[str, Any]:
+    items = FirmsService.get_detections(limit=limit, priority_only=priority_only)
+    return {
+        "source": "NASA FIRMS",
+        "count": len(items),
+        "detections": items,
+    }
+
+
+@router.get("/live", summary="Get NASA FIRMS Active Thermal Anomaly Feed")
 def get_live_firms(
     country_code: str = Query("IND", description="ISO3 Country code or region"),
     map_key: str = Query(None, description="Optional NASA FIRMS API MAP_KEY"),
 ) -> Dict[str, Any]:
-    global _cached_live_data
-    now = time.time()
-
-    # Return cached live data if fresh
-    if _cached_live_data["data"] and (now - _cached_live_data["timestamp"] < CACHE_TTL):
-        return {
-            "source": "NASA FIRMS (Live Cache)",
-            "count": len(_cached_live_data["data"]),
-            "detections": _cached_live_data["data"],
-        }
-
-    # If user provided a MAP_KEY or environment variable has FIRMS_MAP_KEY
-    firms_key = map_key or os.environ.get("FIRMS_MAP_KEY")
-    if firms_key:
-        try:
-            url = f"https://firms.modaps.eosdis.nasa.gov/api/country/csv/{firms_key}/VIIRS_NRT/{country_code}/1"
-            response = requests.get(url, timeout=5)
-            if response.status_code == 200 and "latitude" in response.text:
-                import io
-                import pandas as pd
-                df = pd.read_csv(io.StringIO(response.text))
-                records = df.fillna("").to_dict(orient="records")
-                _cached_live_data = {"timestamp": now, "data": records}
-                return {
-                    "source": "NASA FIRMS (Live API)",
-                    "count": len(records),
-                    "detections": records,
-                }
-        except Exception as e:
-            print(f"[FIRMS] Live API fetch warning: {e}")
-
-    # Fallback: Serve top recent 100 master dataset records formatted as live NRT feed
-    df_master = get_master_df()
-    if not df_master.empty:
-        sample = df_master.head(200).fillna("").to_dict(orient="records")
-        _cached_live_data = {"timestamp": now, "data": sample}
-        return {
-            "source": "NASA FIRMS (NRT Stream Fallback)",
-            "count": len(sample),
-            "detections": sample,
-        }
-
+    items = FirmsService.get_detections(limit=2600, priority_only=False)
     return {
-        "source": "NASA FIRMS (Empty)",
-        "count": 0,
-        "detections": [],
+        "source": "NASA FIRMS",
+        "count": len(items),
+        "detections": items,
     }
